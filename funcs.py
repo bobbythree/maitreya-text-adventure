@@ -5,12 +5,6 @@ from enemies import enemies
 
 #funcs
 def chooseClass():    
-    print(f"""Select your character's class:
-    fighter
-    mage
-    rogue
-    (type your selection)
-    """)
     characterClass = input('>')
 
     if characterClass in characters:
