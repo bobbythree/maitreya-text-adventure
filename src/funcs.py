@@ -48,8 +48,8 @@ def fight(characterClass):
         print("You attack the blob...")
         time.sleep(2)
         
-        hitChance = random.randint(0, 1)
-        if hitChance == 1:
+        hitChance = random.randint(0, 2)
+        if hitChance > 0:
             print("HIT!")
             enemies["blueBlob"]["hp"] -= characters[characterClass]["damage"]
             print(f"Enemy HP: {enemies["blueBlob"]["hp"]}")
