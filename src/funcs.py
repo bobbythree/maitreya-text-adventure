@@ -50,14 +50,14 @@ def fight(characterClass):
         
         hitChance = random.randint(0, 2)
         if hitChance > 0:
-            print("HIT!")
+            print("\033[1;31;40m HIT!\033[0;37;40m  ")
             enemies["blueBlob"]["hp"] -= characters[characterClass]["damage"]
             print(f"Enemy HP: {enemies["blueBlob"]["hp"]}")
             if enemies["blueBlob"]["hp"] <= 0:
                 print("YOU DEFEATED THE BLUE BLOB!!!")
                 break
         else:
-            print("MISS!")
+            print("\033[1;34;40m MISS!\033[0;37;40m ")
         
         time.sleep(2)
 
@@ -65,14 +65,14 @@ def fight(characterClass):
         hitChance = random.randint(0, 1)
         time.sleep(2)
         if hitChance == 1:
-            print("HIT!")
+            print("\033[1;31;40m HIT!\033[0;37;40m ")
             characters[characterClass]["hp"] -= enemies["blueBlob"]["damage"]
             print(f"Player HP: {characters[characterClass]["hp"]}")
             if characters[characterClass]["hp"] <= 0:
                 print("you friggin died.")
                 break
         else:
-            print("MISS!")
+            print("\033[1;34;40m MISS!\033[0;37;40m ")
 
         time.sleep(2)
 
