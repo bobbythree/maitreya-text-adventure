@@ -1,0 +1,17 @@
+# storyline brainstorm
+
+#setting
+100 years into the future. The world is dominated by computers and automated AI
+tasks which have favored ease of use over all else. As a result, human 
+intelligence and creativity has diminished to a point where a dystopian society 
+has emerged. Our protagonist takes exception to this and aims to restore humanity by re-implementing archaic technologies to reawaken human creativity and 
+intelligence
+
+#history
+In 2033, AI surpasses humans in ability to code. AI programmers slowly take over the tech world both in programming and creative design. Humans at first cling to their own creativity by programming along side AI, but slowly but surely give it up. 
+
+#story idea
+The game is eventually revealed as actually being a part of the story and the player becomes involved in preventing dystopia. It could be sort of like 'the never ending story' in which the 4th wall is broken little by little until the player is in the story completely. Or similar to 'enders game' where unbeknownst to the player they have been helping all along.
+
+#start of game
+The game will show an ascii picture of the game title. Text will say welcome to [game_title].
