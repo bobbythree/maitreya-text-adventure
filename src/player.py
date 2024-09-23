@@ -1,8 +1,6 @@
-import random
-
-player = {
-    hp = 100
-    gp = 100
-    inventory = []
-    weapon = None      
+stats = {
+    "hp": 100,
+    "gp": 100,
+    "inventory": [],
+    "weapon": None      
 }

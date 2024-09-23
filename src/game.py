@@ -1,8 +1,7 @@
 import pyfiglet
 from verbs import *
+from one_word_commands import *
 from scenes import bedroom
-
-
 
 # display command prompt, tokenize user input, get verb and noun
 def command_prompt(scene_name):
@@ -19,13 +18,14 @@ def command_prompt(scene_name):
 
 def run_command(command, scene_name):
     if command[0] in verbs.keys() and len(command) == 1:
-        print(f"{command[0]} what?")
+        print(f"{command[0]}...?")
     elif command[0] in verbs.keys() and command[1] in scene_name.scene["nouns"].keys():
         output = verbs[command[0]]["func"](scene_name, command[1])
         print(output)
     else: print("Does not compute.")
     command_prompt(scene_name)
 
+# start of gameplay
 def start():
     game_logo = pyfiglet.figlet_format("Q U E S T", font="colossal")
     print(game_logo)
