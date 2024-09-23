@@ -1,28 +1,30 @@
 import pyfiglet
 from verbs import *
-from nouns import *
+from scenes import bedroom
 
-#display command prompt, tokenize user input, get verb and noun
-def command_prompt():
+
+
+# display command prompt, tokenize user input, get verb and noun
+def command_prompt(scene_name):
     command = input("> ")
     tokens = command.lower().split()
     command_list = []
     for x in tokens:
         if x in verbs.keys():
             command_list.append(x)
-        if x in nouns.keys():
+        if x in scene_name.scene["nouns"].keys():
             command_list.append(x)
-    run_command(command_list)
+    run_command(command_list, scene_name)
 
 
-def run_command(command):
+def run_command(command, scene_name):
     if command[0] in verbs.keys() and len(command) == 1:
         print(f"{command[0]} what?")
-    elif command[0] in verbs.keys() and command[1] in nouns.keys():
-        output = verbs[command[0]]["func"](command[1])
+    elif command[0] in verbs.keys() and command[1] in scene_name.scene["nouns"].keys():
+        output = verbs[command[0]]["func"](scene_name, command[1])
         print(output)
     else: print("Does not compute.")
-    command_prompt()
+    command_prompt(scene_name)
 
 def start():
     game_logo = pyfiglet.figlet_format("Q U E S T", font="colossal")
@@ -32,6 +34,6 @@ def start():
 if __name__ == "__main__":
     start()
 
-command_prompt()    
+command_prompt(bedroom)  
 
-            
+
