@@ -8,5 +8,8 @@ nouns = {
     "computer": {
         "description": "You look at the computer screen..."
     },
-    "door": "It's the door that leads out of your bedroom"
+    "door": {
+        "description": "It's the door that leads out of your bedroom",
+        "can_open": True    
+    } 
 }

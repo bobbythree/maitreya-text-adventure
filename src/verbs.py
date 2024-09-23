@@ -1,10 +1,11 @@
 from nouns import *
 
 def describe(noun):
-    print(nouns[noun]["description"])
+    return nouns[noun]["description"]
 
 verbs = {
     "look": {
         "func": describe
     }
 }
+

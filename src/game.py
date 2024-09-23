@@ -3,10 +3,12 @@ from verbs import *
 from nouns import *
 
 def run_command(command):
-    if command[0] in verbs.keys() and command[1] in nouns.keys():
-        output = verbs[command[0]]["func"](nouns[command[1]]["description"])
+    if command[0] in verbs.keys() and len(command) == 1:
+        print(f"{command[0]} what?")
+    elif command[0] in verbs.keys() and command[1] in nouns.keys():
+        output = verbs[command[0]]["func"](command[1])
         print(output)
-    
+    else: print("Does not compute.")
 
 def start():
     game_logo = pyfiglet.figlet_format("Q U E S T", font="colossal")
@@ -24,7 +26,8 @@ def start():
     
             
 
-
-start()
+if __name__ == "__main__":
+    start()
+    
 
             
