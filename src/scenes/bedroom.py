@@ -1,22 +1,30 @@
+import player
+
 scene = {
     "nouns": {
         "bedroom": {
-            "description": ""
+            "description": """**describe bedroom""",
+            "can_open": False
         },
         "window": {
-            "description": "Out the window you see...."
+            "description": "Out the window you see....",
+            "can_open": True
         },
         "desk": {
-                "description": "The desk has one drawer"
+            "description": "The desk has one drawer",
+            "can_open": False
         },
         "drawer": {
-            "descripion": "Well...it's a drawer...",
+            "description": "Well...it's a drawer...",
             "can_open": True,
-            "is_open": False
+            "is_open": False,
+            "opened": "Inside the drawer is a small thumbdrive.",
+            "contents": "thumbdrive"
         },
         "thumbdrive": {
             "description": "**describe thumbdrive",
-            "can_get": True
+            "can_get": True,
+            "can_open": False
         },
         "computer": {
             "description": "You look at the computer screen..."
@@ -25,6 +33,13 @@ scene = {
             "description": "It's the door that leads out of your bedroom",
             "can_open": True,
             "is_open": False
+        },
+        "bed": {
+            "description": "A small matress on the floor.",
+            "can_open": False
+        },
+        "inventory": {
+            "description": player.stats["inventory"]
         }
     }
 }
