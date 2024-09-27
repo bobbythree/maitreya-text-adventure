@@ -28,9 +28,11 @@ def run_command(command, scene_name):
     elif command[0] in verbs.keys() and command[1] in scene_name.scene["nouns"].keys():
         output = verbs[command[0]]["func"](scene_name, command[1])
         print(output)
-        print(command)
-       
+        print(f"command: {command}") #testing parsed command
+    if "exit" in command:
+        exit_scene(scene_name, command[1])
     
+    #loop back into the prompt
     command_prompt(scene_name)
 
 # start of gameplay

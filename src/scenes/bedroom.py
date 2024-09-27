@@ -19,7 +19,7 @@ scene = {
             "can_open": True,
             "is_open": False,
             "opened": "Inside the drawer is a small thumbdrive.",
-            "contents": "thumbdrive"
+            "contents": "Inside the drawer you see a small thumbdrive"
         },
         "thumbdrive": {
             "description": "**describe thumbdrive",
@@ -32,7 +32,8 @@ scene = {
         "door": {
             "description": "It's the door that leads out of your bedroom",
             "can_open": True,
-            "is_open": False
+            "is_open": False,
+            "contents": "out the door is a staircase down to another door."
         },
         "bed": {
             "description": "A small matress on the floor.",

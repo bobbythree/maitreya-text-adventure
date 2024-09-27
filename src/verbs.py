@@ -2,7 +2,10 @@ from scenes import bedroom
 import player
 
 def describe(scene_name, noun):
-    return scene_name.scene["nouns"][noun]["description"]
+    if scene_name.scene["nouns"][noun]["is_open"]:
+        return scene_name.scene["nouns"][noun]["contents"]
+    else: 
+        return scene_name.scene["nouns"][noun]["description"]
 
 def get_item(scene_name, item):
     """takes in scene name and command[1] from run_command func."""
@@ -25,6 +28,10 @@ def open_item(scene_name, item):
         return "It's already open!" 
     else: return f"You cannot open {item}"
 
+def exit_scene(scene_name, noun):
+    # todo: find way to pass next scene_name
+    return f"you exit the {noun}"
+
 verbs = {
     "look": {
         "func": describe
@@ -34,6 +41,9 @@ verbs = {
     },
     "open": {
         "func": open_item
+    },
+    "exit": {
+        "func": exit_scene
     }
 }
 
