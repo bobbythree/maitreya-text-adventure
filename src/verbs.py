@@ -5,7 +5,7 @@ def describe(scene_name, noun):
     return scene_name.scene["nouns"][noun]["description"]
 
 def get_item(scene_name, item):
-    """takes in scene name and item passed from run command function."""
+    """takes in scene name and command[1] from run_command func."""
     current_item = scene_name.scene["nouns"][item] 
     if item in scene_name.scene["nouns"] and current_item["can_get"]:
         player.stats["inventory"].append(item)
