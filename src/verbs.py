@@ -2,17 +2,25 @@ from scenes import bedroom
 import player
 
 def describe(scene_name, noun):
-    if scene_name.scene["nouns"][noun]["is_open"]:
-        return scene_name.scene["nouns"][noun]["contents"]
-    else: 
-        return scene_name.scene["nouns"][noun]["description"]
+    """describes item (if not open) or item's contents(if open)"""
+    if noun in scene_name.scene["nouns"]: #if item is in scene/    
+        if scene_name.scene["nouns"][noun]["is_open"]:
+            return scene_name.scene["nouns"][noun]["contents"]
+        else: 
+            return scene_name.scene["nouns"][noun]["description"]
+    elif noun == player.stats["inventory"]["name"]: # if item is in inv
+        if player.stats["inventory"]["is_open"]:
+            return player.stats["inventory"]["contents"]
+        else: 
+            return player.stats["inventory"]["description"]
 
 def get_item(scene_name, item):
-    """takes in scene name and command[1] from run_command func."""
-    current_item = scene_name.scene["nouns"][item] 
-    if item in scene_name.scene["nouns"] and current_item["can_get"]:
+    """player takes item and puts in inventory"""
+     
+    if item in scene_name.scene["nouns"] and scene_name.scene["nouns"][item]["can_get"]:
         removed_item = scene_name.scene["nouns"].pop(item)
         player.stats["inventory"].update(removed_item)
+        player.stats["inventory"]["can_get"] = False
         print(f"You pick up the {item}") 
         return f"Your Inventory: {player.stats["inventory"]["name"]}"
     else: return "You cannot get that"
