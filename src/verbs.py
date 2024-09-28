@@ -11,11 +11,11 @@ def get_item(scene_name, item):
     """takes in scene name and command[1] from run_command func."""
     current_item = scene_name.scene["nouns"][item] 
     if item in scene_name.scene["nouns"] and current_item["can_get"]:
-        player.stats["inventory"].append(item)
-        scene_name.scene["nouns"].pop(item)
+        removed_item = scene_name.scene["nouns"].pop(item)
+        player.stats["inventory"].update(removed_item)
         print(f"You pick up the {item}") 
-        return f"Your Inventory: {player.stats["inventory"]}"
-    else: print("You cannot get that right now")
+        return f"Your Inventory: {player.stats["inventory"]["name"]}"
+    else: return "You cannot get that"
     
         
 
@@ -32,6 +32,8 @@ def exit_scene(scene_name, noun):
     # todo: find way to pass next scene_name
     return f"you exit the {noun}"
 
+
+#verb dict
 verbs = {
     "look": {
         "func": describe

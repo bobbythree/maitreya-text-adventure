@@ -1,4 +1,5 @@
 import pyfiglet
+import player
 from verbs import *
 from one_word_commands import *
 from scenes import bedroom
@@ -12,8 +13,10 @@ def command_prompt(scene_name):
         if x in verbs.keys() and x not in command_list:
             command_list.append(x)
         elif x in scene_name.scene["nouns"].keys() and x not in command_list:
-            command_list.append(x)       
-        
+            command_list.append(x)
+        # elif x in player.stats["inventory"] and x not in command_list:
+        #     command_list.append(x)       
+    
     run_command(command_list, scene_name)
     
 
@@ -24,11 +27,14 @@ def run_command(command, scene_name):
     elif command[0] in verbs.keys() and len(command) == 1:
         print(f"{command[0]}...?")
     elif command[0] not in verbs.keys() or command[1] not in scene_name.scene["nouns"].keys():
-        print("try saying that another way.")
+        print("try saying that another way.")    
     elif command[0] in verbs.keys() and command[1] in scene_name.scene["nouns"].keys():
         output = verbs[command[0]]["func"](scene_name, command[1])
         print(output)
-        print(f"command: {command}") #testing parsed command
+    elif command[0] in verbs.keys() and command[1] not in scene_name.scene["nouns"].keys() and command[1] in player.stats["inventory"]:
+        output = verbs[command[0]]["func"](scene_name, command[1])
+        print(output)
+        print(f"command: {command}")    
     if "exit" in command:
         exit_scene(scene_name, command[1])
     
