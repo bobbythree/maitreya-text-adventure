@@ -14,7 +14,7 @@ def command_prompt(scene_name):
             command_list.append(x)
         elif x in scene_name.scene["nouns"].keys() and x not in command_list:
             command_list.append(x)
-        elif x == player.stats["inventory"]["name"] and x not in command_list:
+        elif x in player.stats["inventory"].values() and x not in command_list:
             command_list.append(x)       
     
     run_command(command_list, scene_name)
@@ -24,10 +24,9 @@ def run_command(command, scene_name):
         print("does not compute.")
     elif command[0] in verbs.keys() and len(command) == 1:
         print(f"{command[0]}...?")
-    elif command[0] in verbs.keys() and command[1] not in scene_name.scene["nouns"].keys() and command[1] == player.stats["inventory"]["name"]:
+    elif command[0] in verbs.keys() and command[1] not in scene_name.scene["nouns"].keys() and command[1] in player.stats["inventory"].values():
         output = verbs[command[0]]["func"](scene_name, command[1])
         print(output)
-        print(f"command: {command}")
     elif command[0] not in verbs.keys() or command[1] not in scene_name.scene["nouns"].keys():
         print("try saying that another way.")    
     elif command[0] in verbs.keys() and command[1] in scene_name.scene["nouns"].keys():

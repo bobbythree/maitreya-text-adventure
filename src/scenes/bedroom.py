@@ -54,7 +54,7 @@ scene = {
             "is_open": False,
         },
         "inventory": {
-            "description": player.stats["inventory"].values(),
+            "description": player.stats["inventory"],
             "can_get": False,
             "is_open": False
         }
