@@ -1,5 +1,6 @@
-from scenes import bedroom
+from scenes import bedroom, street
 import player
+import verbs
 
 def describe(scene_name, noun):
     """describes item (if not open) or item's contents(if open)"""
@@ -15,8 +16,8 @@ def describe(scene_name, noun):
             return player.stats["inventory"]["description"]
 
 def get_item(scene_name, item):
-    """player takes item and puts in inventory"""
-     
+    """moves item (dict) from scene to player inv."""
+         
     if item in scene_name.scene["nouns"] and scene_name.scene["nouns"][item]["can_get"]:
         removed_item = scene_name.scene["nouns"].pop(item)
         player.stats["inventory"].update(removed_item)
@@ -36,9 +37,10 @@ def open_item(scene_name, item):
         return "It's already open!" 
     else: return f"You cannot open {item}"
 
-def exit_scene(scene_name, noun):
-    # todo: find way to pass next scene_name
-    return f"you exit the {noun}"
+def exit_scene(scene_name, exit):    
+    
+    return f"you exit the {exit}"
+    
 
 
 #verb dict
@@ -53,7 +55,7 @@ verbs = {
         "func": open_item
     },
     "exit": {
-        "func": exit_scene
+        
     }
 }
 

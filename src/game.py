@@ -2,7 +2,7 @@ import pyfiglet
 import player
 from verbs import *
 from one_word_commands import *
-from scenes import bedroom
+from scenes import bedroom, street
 
 # display command prompt, tokenize user input, get verb and noun
 def command_prompt(scene_name):
@@ -22,6 +22,14 @@ def command_prompt(scene_name):
 def run_command(command, scene_name):
     if command == []:
         print("does not compute.")
+    if command[0] == "exit":
+        next_scene = scene_name.scene["nouns"][command[1]]["next_scene"]
+        print(f"you exit the {command[1]}")
+        print(next_scene)
+        command_prompt(next_scene)
+        
+        
+        # exit_scene(scene_name, command[1])
     elif command[0] in verbs.keys() and len(command) == 1:
         print(f"{command[0]}...?")
     elif command[0] in verbs.keys() and command[1] not in scene_name.scene["nouns"].keys() and command[1] in player.stats["inventory"].values():
@@ -32,8 +40,7 @@ def run_command(command, scene_name):
     elif command[0] in verbs.keys() and command[1] in scene_name.scene["nouns"].keys():
         output = verbs[command[0]]["func"](scene_name, command[1])
         print(output)
-    if "exit" in command:
-        exit_scene(scene_name, command[1])
+    
     
     #loop back into the prompt
     command_prompt(scene_name)
