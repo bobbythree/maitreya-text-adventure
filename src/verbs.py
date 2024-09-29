@@ -3,7 +3,8 @@ import player
 import verbs
 
 def describe(scene_name, noun):
-    """describes item (if not open) or item's contents(if open)"""
+    """check if item is in scene or in inventory. describe item (if not open) 
+    or item's contents(if open)"""
     if noun in scene_name.scene["nouns"]: #if item is in scene/    
         if scene_name.scene["nouns"][noun]["is_open"]:
             return scene_name.scene["nouns"][noun]["contents"]
@@ -16,7 +17,8 @@ def describe(scene_name, noun):
             return player.stats["inventory"]["description"]
 
 def get_item(scene_name, item):
-    """moves item (dict) from scene to player inv."""
+    """check if item is in scene and is able to be picked up. move item (dict) 
+    from scene to player inventory. Print inventory"""
          
     if item in scene_name.scene["nouns"] and scene_name.scene["nouns"][item]["can_get"]:
         removed_item = scene_name.scene["nouns"].pop(item)
@@ -29,6 +31,7 @@ def get_item(scene_name, item):
         
 
 def open_item(scene_name, item):
+    """check if item is openable. If openable, change state to is_open: True."""
     current_item = scene_name.scene["nouns"][item]
     if current_item["can_open"] and not current_item["is_open"]:
         current_item["is_open"] = True
