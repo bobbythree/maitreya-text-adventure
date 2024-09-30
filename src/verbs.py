@@ -5,6 +5,7 @@ import verbs
 def describe(scene_name, noun):
     """check if item is in scene or in inventory. describe item (if not open) 
     or item's contents(if open)"""
+    
     if noun in scene_name.scene["nouns"]: #if item is in scene/    
         if scene_name.scene["nouns"][noun]["is_open"]:
             return scene_name.scene["nouns"][noun]["contents"]
@@ -32,6 +33,7 @@ def get_item(scene_name, item):
 
 def open_item(scene_name, item):
     """check if item is openable. If openable, change state to is_open: True."""
+    
     current_item = scene_name.scene["nouns"][item]
     if current_item["can_open"] and not current_item["is_open"]:
         current_item["is_open"] = True
@@ -56,9 +58,6 @@ verbs = {
     },
     "open": {
         "func": open_item
-    },
-    "exit": {
-        
-    }
+    }    
 }
 

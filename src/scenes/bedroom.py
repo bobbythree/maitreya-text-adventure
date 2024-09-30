@@ -1,5 +1,6 @@
 import player
 import pyfiglet
+from scenes import street as street
 
 scene = {
     "nouns": {
@@ -57,7 +58,7 @@ pressed to even find a computer that has a port for it. Yours sure doesn't.""",
             "can_open": True,
             "is_open": False,
             "contents": "out the door is a staircase down to another door.",
-            "next_scene": "street"
+            "next_scene": street
         },
         "bed": {
             "description": "A small matress on the floor.",
@@ -66,7 +67,7 @@ pressed to even find a computer that has a port for it. Yours sure doesn't.""",
             "is_open": False,
         },
         "inventory": {
-            "description": player.stats["inventory"].values(),
+            "description": player.stats["inventory"],
             "can_get": False,
             "is_open": False
         }

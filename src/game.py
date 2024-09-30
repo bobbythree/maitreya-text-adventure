@@ -1,3 +1,7 @@
+"""this is the main py file and entry point for this program.
+
+It contains the text parser functions (command_prompt and run_command) as well as the game's start function."""
+
 import pyfiglet
 import player
 from verbs import *
@@ -6,9 +10,10 @@ from scenes import bedroom, street
 
 # text-parser funcs
 def command_prompt(scene_name):
-    """display the command prompt in current scene. tokenize user input.
+    """display the command prompt in the current scene. tokenize user input.
     loop over tokens. put verbs, nouns etc into command_list. Call 
     run_command func, passing it the commands"""
+    
     command = input("> ")
     tokens = command.lower().split()
     command_list = []
@@ -26,12 +31,16 @@ def run_command(command, scene_name):
     """take in command list and current scene name. handle various commands
     and errors. If no errors, execute the verb function from verbs.py. Call the 
     command_prompt func again."""
+    
     if command == []: # if no words matched known words
         print("does not compute.")
-    if command[0] == "exit": # if verb is "exit"
-        next_scene = scene_name.scene["nouns"][command[1]]["next_scene"]
+    elif command[0] == "exit" and len(command) == 1:
+        print("nope.")
+    elif command[0] == "exit" and command[1] in scene_name.scene["nouns"].keys():
+        next_scene = scene_name.scene["nouns"][command[1]]["next_scene"]        
         print(f"you exit the {command[1]}")
-        command_prompt(next_scene)        
+        print(f"Current scene: {next_scene.__name__[7:]}")
+        command_prompt(next_scene)              
     elif command[0] in verbs.keys() and len(command) == 1: # if no noun
         print(f"{command[0]}...?")
     elif command[0] in verbs.keys() and command[1] not in scene_name.scene["nouns"].keys() and command[1] in player.stats["inventory"].values(): # if item is in inventory, not scene
@@ -41,8 +50,7 @@ def run_command(command, scene_name):
         print("try saying that another way.")    
     elif command[0] in verbs.keys() and command[1] in scene_name.scene["nouns"].keys(): # both verb and noun match
         output = verbs[command[0]]["func"](scene_name, command[1])
-        print(output)
-    
+        print(output)    
     
     #loop back into the prompt
     command_prompt(scene_name)
@@ -50,6 +58,7 @@ def run_command(command, scene_name):
 # start of gameplay
 def start():
     """display welcome message. Call command_prompt func with first scene."""
+    
     game_logo = pyfiglet.figlet_format("Q U E S T", font="colossal")
     print(game_logo)
     print("""Welcome to QUEST! You wake up in your bedroom which is dimly lit by artificial light coming through the [window]. In the room is your [computer] sitting on a [desk]. There is one [door] to get out.""")            
