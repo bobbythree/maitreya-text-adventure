@@ -1,3 +1,5 @@
+"""This module contains all verbs for the game and their functions."""
+
 from scenes import bedroom, street
 import player
 import verbs
@@ -6,12 +8,12 @@ def describe(scene_name, noun):
     """check if item is in scene or in inventory. describe item (if not open) 
     or item's contents(if open)"""
     
-    if noun in scene_name.scene["nouns"]: #if item is in scene/    
+    if noun in scene_name.scene["nouns"]: #if item is in current scene/    
         if scene_name.scene["nouns"][noun]["is_open"]:
             return scene_name.scene["nouns"][noun]["contents"]
         else: 
             return scene_name.scene["nouns"][noun]["description"]
-    elif noun == player.stats["inventory"]["name"]: # if item is in inv
+    elif noun == player.stats["inventory"]["name"]: # if item is in player inventory
         if player.stats["inventory"]["is_open"]:
             return player.stats["inventory"]["contents"]
         else: 
@@ -32,7 +34,7 @@ def get_item(scene_name, item):
         
 
 def open_item(scene_name, item):
-    """check if item is openable. If openable, change state to is_open: True."""
+    """check if item is openable. If openable, change item's state to is_open: True."""
     
     current_item = scene_name.scene["nouns"][item]
     if current_item["can_open"] and not current_item["is_open"]:
@@ -41,12 +43,6 @@ def open_item(scene_name, item):
     elif current_item["can_open"] and current_item["is_open"]:
         return "It's already open!" 
     else: return f"You cannot open {item}"
-
-def exit_scene(scene_name, exit):    
-    
-    return f"you exit the {exit}"
-    
-
 
 #verb dict
 verbs = {

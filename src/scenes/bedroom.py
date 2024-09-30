@@ -1,3 +1,7 @@
+"""This module contains data for the scene: 'bedroom'. It contains all game
+objects (nouns) for this scene and their attributes.
+"""
+
 import player
 import pyfiglet
 from scenes import street as street

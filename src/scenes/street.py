@@ -1,3 +1,7 @@
+"""This module contains data for the scene: 'street'. It contains all game
+objects (nouns) for this scene and their attributes.
+"""
+
 scene = {
     "nouns": {
         "street": {
