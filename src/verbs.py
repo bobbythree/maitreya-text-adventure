@@ -54,6 +54,9 @@ verbs = {
     },
     "open": {
         "func": open_item
+    },
+    "exit": {
+        
     }    
 }
 
