@@ -8,11 +8,13 @@ from verbs import *
 from one_word_commands import *
 from scenes import bedroom, street
 
+
 # text-parser funcs
 def command_prompt(scene_name):
     """display the command prompt in the current scene. tokenize user input.
     loop over tokens. put verbs, nouns etc into command_list. Call 
-    run_command func, passing it the commands"""
+    run_command func, passing it the commands.
+    """
     
     command = input("> ")
     tokens = command.lower().split()
@@ -26,6 +28,7 @@ def command_prompt(scene_name):
             command_list.append(x)       
     
     run_command(command_list, scene_name)
+
 
 def run_command(command, scene_name):
     """take in command list and current scene name. handle various commands
@@ -55,6 +58,7 @@ def run_command(command, scene_name):
     #loop back into the prompt
     command_prompt(scene_name)
 
+
 # start of gameplay
 def start():
     """display welcome message. Call command_prompt func with first scene."""
@@ -65,6 +69,7 @@ def start():
     
 if __name__ == "__main__":
     start()
+
 
 #initial call 
 command_prompt(bedroom)  

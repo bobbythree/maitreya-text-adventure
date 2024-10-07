@@ -19,6 +19,7 @@ scene = {
             "can_get": False,
             "can_open": True,
             "is_open": False,
+            "has_contents": False,
             "description_open": """Looking out the window you can see many video screens up on tall poles that are broadcasting advertisements for various corporate interests such as Pear, MacroFirm, MVideo and Booble."""
         },
         "desk": {
@@ -33,6 +34,7 @@ scene = {
             "can_open": True,
             "is_open": False,                        
             "description_open": "Inside the drawer you see a small thumbdrive",
+            "has_contents": True,
             "contents": ["thumbdrive"]
         },
         "thumbdrive": {
@@ -61,6 +63,7 @@ scene = {
             "can_get": False,
             "can_open": True,
             "is_open": False,
+            "has_contents": False,
             "description_open": "out the door is a staircase down to another door.",
             "next_scene": street
         },

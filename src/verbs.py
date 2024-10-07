@@ -6,17 +6,24 @@ import player
 def describe(scene_name, noun):
     """check if item is in scene or in inventory. describe item (if not open) 
     or item's contents(if open)"""
-    
-    if noun in scene_name.scene["nouns"]: #if item is in current scene/    
+
+    #if item is in current scene/
+    if noun in scene_name.scene["nouns"]:
+        if scene_name.scene["nouns"][noun]["is_open"] and scene_name.scene["nouns"][noun]["has_contents"]:
+            return f"Contents: {scene_name.scene["nouns"][noun]["contents"]}"    
         if scene_name.scene["nouns"][noun]["is_open"]:
             return scene_name.scene["nouns"][noun]["description_open"]
         else: 
             return scene_name.scene["nouns"][noun]["description"]
-    elif noun == player.stats["inventory"]["name"]: # if item is in player inventory
+    # if item is in player inventory
+    elif noun == player.stats["inventory"]["name"]:
+        if player.stats["inventory"]["is_open"] and player.stats["inventory"]["has_contents"]:
+            return f"Contents: {scene_name.scene["nouns"][noun]["contents"]}"
         if player.stats["inventory"]["is_open"]:
             return player.stats["inventory"]["description_open"]
         else: 
             return player.stats["inventory"]["description"]
+
 
 def get_item(scene_name, item):
     """check if item is in scene and is able to be picked up. move item (dict) 
@@ -27,8 +34,7 @@ def get_item(scene_name, item):
         player.stats["inventory"].update(removed_item)
         player.stats["inventory"]["can_get"] = False
         return f"You pick up the {item}\n" f"Your Inventory: {player.stats["inventory"]["name"]}"
-    else: return "You cannot get that"
-    
+    else: return "You cannot get that"    
         
 
 def open_item(scene_name, item):
@@ -41,6 +47,7 @@ def open_item(scene_name, item):
     elif current_item["can_open"] and current_item["is_open"]:
         return "It's already open!" 
     else: return f"You cannot open {item}."
+
 
 #verb dict
 verbs = {
