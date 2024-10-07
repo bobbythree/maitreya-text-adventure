@@ -2,7 +2,6 @@
 
 from scenes import bedroom, street
 import player
-import verbs
 
 def describe(scene_name, noun):
     """check if item is in scene or in inventory. describe item (if not open) 
@@ -10,12 +9,12 @@ def describe(scene_name, noun):
     
     if noun in scene_name.scene["nouns"]: #if item is in current scene/    
         if scene_name.scene["nouns"][noun]["is_open"]:
-            return scene_name.scene["nouns"][noun]["contents"]
+            return scene_name.scene["nouns"][noun]["description_open"]
         else: 
             return scene_name.scene["nouns"][noun]["description"]
     elif noun == player.stats["inventory"]["name"]: # if item is in player inventory
         if player.stats["inventory"]["is_open"]:
-            return player.stats["inventory"]["contents"]
+            return player.stats["inventory"]["description_open"]
         else: 
             return player.stats["inventory"]["description"]
 
@@ -27,8 +26,7 @@ def get_item(scene_name, item):
         removed_item = scene_name.scene["nouns"].pop(item)
         player.stats["inventory"].update(removed_item)
         player.stats["inventory"]["can_get"] = False
-        print(f"You pick up the {item}") 
-        return f"Your Inventory: {player.stats["inventory"]["name"]}"
+        return f"You pick up the {item}\n" f"Your Inventory: {player.stats["inventory"]["name"]}"
     else: return "You cannot get that"
     
         
