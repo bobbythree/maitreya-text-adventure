@@ -40,7 +40,7 @@ def open_item(scene_name, item):
         return f"You open the {item}."        
     elif current_item["can_open"] and current_item["is_open"]:
         return "It's already open!" 
-    else: return f"You cannot open {item}"
+    else: return f"You cannot open {item}."
 
 #verb dict
 verbs = {
