@@ -32,8 +32,7 @@ scene = {
             "description": "Well...it's a drawer...",
             "can_get": False,
             "can_open": True,
-            "is_open": False,                        
-            "description_open": "Inside the drawer you see a small thumbdrive",
+            "is_open": False,
             "has_contents": True,
             "contents": ["thumbdrive"]
         },

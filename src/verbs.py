@@ -4,8 +4,7 @@ from scenes import bedroom, street
 import player
 
 def describe(scene_name, noun):
-    """check if item is in scene or in inventory. describe item (if not open) 
-    or item's contents(if open)"""
+    """check if item is in scene or in inventory. Check if item is open and if item has contents. Decribe item or item contents. If item has no contents and is open(such as a door), call the item's 'description_open' property"""
 
     #if item is in current scene/
     if noun in scene_name.scene["nouns"]:
@@ -26,8 +25,7 @@ def describe(scene_name, noun):
 
 
 def get_item(scene_name, item):
-    """check if item is in scene and is able to be picked up. move item (dict) 
-    from scene to player inventory. Print inventory"""
+    """check if item is in scene and is able to be picked up. If both return true, move item (dict) from scene to player inventory. Print inventory"""
          
     if item in scene_name.scene["nouns"] and scene_name.scene["nouns"][item]["can_get"]:
         removed_item = scene_name.scene["nouns"].pop(item)
@@ -38,7 +36,7 @@ def get_item(scene_name, item):
         
 
 def open_item(scene_name, item):
-    """check if item is openable. If openable, change item's state to is_open: True."""
+    """Check if item is openable and item is not already open. If both return true, open the item and change item's state to is_open: True."""
     
     current_item = scene_name.scene["nouns"][item]
     if current_item["can_open"] and not current_item["is_open"]:
