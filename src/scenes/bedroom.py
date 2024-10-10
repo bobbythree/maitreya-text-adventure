@@ -13,6 +13,7 @@ scene = {
             "can_get": False,
             "can_open": False,
             "is_open": False,
+            "contents": []
         },
         "window": {
             "description": """Looking out the window you can see many video screens up on tall poles that are broadcasting advertisements for various corporate interests such as Pear, MacroFirm, MVideo and Booble.""",
@@ -20,13 +21,15 @@ scene = {
             "can_open": True,
             "is_open": False,
             "has_contents": False,
-            "description_open": """Looking out the window you can see many video screens up on tall poles that are broadcasting advertisements for various corporate interests such as Pear, MacroFirm, MVideo and Booble."""
+            "description_open": """Looking out the window you can see many video screens up on tall poles that are broadcasting advertisements for various corporate interests such as Pear, MacroFirm, MVideo and Booble.""",
+            "contents": []
         },
         "desk": {
             "description": "The desk has one drawer",
             "can_get": False,
             "can_open": False,
             "is_open": False,
+            "contents": []
         },
         "drawer": {
             "description": "Well...it's a drawer...",
@@ -41,12 +44,14 @@ scene = {
             "description": """A mostly obsolete piece of technology that stores files and data. You'd be hard pressed to even find a computer that has a port for it. Yours sure doesn't.""",
             "can_get": True,
             "can_open": False,
-            "is_open": False
+            "is_open": False,
+            "contents": []
         },
         "computer": {
             "description": """Your small black laptop sits open on the desk. It is covered in stickers from games and bands you like. The [screen] glows with light blue text""",
             "can_open": False,
             "is_open": False,
+            "contents": []
         },
         "screen": {
             "description": pyfiglet.figlet_format("""
@@ -56,6 +61,7 @@ scene = {
             "can_get": False,
             "can_open": True,
             "is_open": False,
+            "contents": []
         },
         "door": {
             "description": "It's the door that leads out of your bedroom",
@@ -64,18 +70,21 @@ scene = {
             "is_open": False,
             "has_contents": False,
             "description_open": "out the door is a staircase down to another door.",
-            "next_scene": street
+            "next_scene": street,
+            "contents": []
         },
         "bed": {
             "description": "A small matress on the floor.",
             "can_get": False,
             "can_open": False,
             "is_open": False,
+            "contents": []
         },
         "inventory": {
             "description": player.stats["inventory"],
             "can_get": False,
-            "is_open": False
+            "is_open": False,
+            "contents": []
         }
     }
 }

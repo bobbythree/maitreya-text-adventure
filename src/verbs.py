@@ -31,7 +31,11 @@ def get_item(scene_name, item):
         removed_item = scene_name.scene["nouns"].pop(item)
         player.stats["inventory"].update(removed_item)
         player.stats["inventory"]["can_get"] = False
-        return f"You pick up the {item}\n" f"Your Inventory: {player.stats["inventory"]["name"]}"
+        for x in scene_name.scene["nouns"]:
+            if item in scene_name.scene["nouns"][x]["contents"]:
+                scene_name.scene["nouns"][x]["contents"].remove(item)
+        return f"You pick up the {item}\n" f"Your Inventory: {player.stats["inventory"]["name"]}"       
+            
     else: return "You cannot get that"    
         
 
