@@ -9,7 +9,7 @@ def describe(scene_name, noun):
     #if item is in current scene/
     if noun in scene_name.scene["nouns"]:
         if scene_name.scene["nouns"][noun]["is_open"] and scene_name.scene["nouns"][noun]["has_contents"]:
-            return f"Contents: {scene_name.scene["nouns"][noun]["contents"]}"    
+            return f'Contents: {scene_name.scene["nouns"][noun]["contents"]}'    
         if scene_name.scene["nouns"][noun]["is_open"]:
             return scene_name.scene["nouns"][noun]["description_open"]
         else: 
@@ -17,7 +17,7 @@ def describe(scene_name, noun):
     # if item is in player inventory
     elif noun == player.stats["inventory"]["name"]:
         if player.stats["inventory"]["is_open"] and player.stats["inventory"]["has_contents"]:
-            return f"Contents: {scene_name.scene["nouns"][noun]["contents"]}"
+            return f'Contents: {scene_name.scene["nouns"][noun]["contents"]}'
         if player.stats["inventory"]["is_open"]:
             return player.stats["inventory"]["description_open"]
         else: 
@@ -34,7 +34,7 @@ def get_item(scene_name, item):
         for x in scene_name.scene["nouns"]:
             if item in scene_name.scene["nouns"][x]["contents"]:
                 scene_name.scene["nouns"][x]["contents"].remove(item)
-        return f"You pick up the {item}\n" f"Your Inventory: {player.stats["inventory"]["name"]}"       
+        return f'You pick up the {item}\n" f"Your Inventory: {player.stats["inventory"]["name"]}'       
             
     else: return "You cannot get that"    
         
