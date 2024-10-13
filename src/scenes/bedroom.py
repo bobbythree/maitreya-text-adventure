@@ -90,7 +90,7 @@ scene = {
             "contents": []
         },
         "inventory": {
-            "description": player.stats["inventory"],
+            "description": player.stats["inventory"].values(),
             "can_get": False,
             "is_open": False,
             "can_exit": False,

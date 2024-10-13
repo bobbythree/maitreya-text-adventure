@@ -78,7 +78,7 @@ def start():
     
     game_logo = pyfiglet.figlet_format("Q U E S T", font="colossal")
     print(game_logo)
-    print("""Welcome to QUEST! You wake up in your bedroom which is dimly lit by artificial light coming through the [window]. In the room is your [computer] sitting on a [desk]. There is one [door] to get out.""")            
+    print("""Welcome to QUEST! You wake up in your [bedroom] which is dimly lit by artificial light coming through the [window]. In the room is your [computer] sitting on a [desk]. There is one [door] to get out.""")            
     
 if __name__ == "__main__":
     start()

@@ -34,7 +34,7 @@ def get_item(scene_name, item):
         for x in scene_name.scene["nouns"]:
             if item in scene_name.scene["nouns"][x]["contents"]:
                 scene_name.scene["nouns"][x]["contents"].remove(item)
-        return f'You pick up the {item}\n" f"Your Inventory: {player.stats["inventory"]["name"]}'       
+        return f'You pick up the {item}\n' f'Your Inventory: {player.stats["inventory"]["name"]}'       
             
     else: return "You cannot get that"    
         
