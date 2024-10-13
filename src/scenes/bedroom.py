@@ -13,6 +13,7 @@ scene = {
             "can_get": False,
             "can_open": False,
             "is_open": False,
+            "can_exit": False,
             "contents": []
         },
         "window": {
@@ -21,6 +22,7 @@ scene = {
             "can_open": True,
             "is_open": False,
             "has_contents": False,
+            "can_exit": False,
             "description_open": """Looking out the window you can see many video screens up on tall poles that are broadcasting advertisements for various corporate interests such as Pear, MacroFirm, MVideo and Booble.""",
             "contents": []
         },
@@ -29,6 +31,7 @@ scene = {
             "can_get": False,
             "can_open": False,
             "is_open": False,
+            "can_exit": False,
             "contents": []
         },
         "drawer": {
@@ -37,6 +40,7 @@ scene = {
             "can_open": True,
             "is_open": False,
             "has_contents": True,
+            "can_exit": False,
             "contents": ["thumbdrive"]
         },
         "thumbdrive": {
@@ -45,12 +49,14 @@ scene = {
             "can_get": True,
             "can_open": False,
             "is_open": False,
+            "can_exit": False,
             "contents": []
         },
         "computer": {
             "description": """Your small black laptop sits open on the desk. It is covered in stickers from games and bands you like. The [screen] glows with light blue text""",
             "can_open": False,
             "is_open": False,
+            "can_exit": False,
             "contents": []
         },
         "screen": {
@@ -61,6 +67,7 @@ scene = {
             "can_get": False,
             "can_open": True,
             "is_open": False,
+            "can_exit": False,
             "contents": []
         },
         "door": {
@@ -69,6 +76,7 @@ scene = {
             "can_open": True,
             "is_open": False,
             "has_contents": False,
+            "can_exit": True,
             "description_open": "out the door is a staircase down to another door.",
             "next_scene": street,
             "contents": []
@@ -78,12 +86,14 @@ scene = {
             "can_get": False,
             "can_open": False,
             "is_open": False,
+            "can_exit": False,
             "contents": []
         },
         "inventory": {
             "description": player.stats["inventory"],
             "can_get": False,
             "is_open": False,
+            "can_exit": False,
             "contents": []
         }
     }
