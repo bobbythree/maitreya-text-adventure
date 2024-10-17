@@ -1,6 +1,9 @@
 """this is the main py file and entry point for this program.
 
-It contains the text parser functions (command_prompt and run_command) as well as the game's start function."""
+It contains the text parser functions (command_prompt and run_command) as well
+as the game's start function.
+"""
+
 
 import pyfiglet
 import player
@@ -15,6 +18,7 @@ def command_prompt(scene_name):
     loop over tokens. put verbs, nouns etc into command_list. Call 
     run_command func, passing it the commands.
     """
+
     
     command = input("> ")
     tokens = command.lower().split()
@@ -24,7 +28,7 @@ def command_prompt(scene_name):
             command_list.append(x)
         elif x in scene_name.scene["nouns"].keys() and x not in command_list:
             command_list.append(x)
-        elif x in player.stats["inventory"].values() and x not in command_list:
+        elif x in player.stats["inventory"] and x not in command_list:
             command_list.append(x)       
     
     run_command(command_list, scene_name)
@@ -34,6 +38,7 @@ def run_command(command, scene_name):
     """take in command list and current scene name. handle various commands
     and errors. If no errors, execute the verb's function from verbs.py. Call the 
     command_prompt func again."""
+
 
     # if no words matched known words
     if command == []: 
@@ -75,6 +80,7 @@ def run_command(command, scene_name):
 # start of gameplay
 def start():
     """display welcome message. Call command_prompt func with first scene."""
+
     
     game_logo = pyfiglet.figlet_format("Q U E S T", font="colossal")
     print(game_logo)
