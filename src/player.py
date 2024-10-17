@@ -3,6 +3,6 @@
 stats = {
     "hp": 100,
     "gp": 100,
-    "inventory": {},
+    "inventory": [],
     "weapon": None      
 }

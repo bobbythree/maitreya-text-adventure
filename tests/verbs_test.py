@@ -1,6 +1,6 @@
 import pytest
 import src.verbs as verbs
-from scenes import bedroom as bedroom
+from src.scenes import bedroom as bedroom
 
 
 def test_describe_success():

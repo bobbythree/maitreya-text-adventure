@@ -9,6 +9,7 @@ from scenes import street as street
 scene = {
     "nouns": {
         "bedroom": {
+            "name": "bedroom",
             "description": """Your bedroom is small and cluttered.""",
             "can_get": False,
             "can_open": False,
@@ -17,6 +18,7 @@ scene = {
             "contents": []
         },
         "window": {
+            "name": "window",
             "description": """Looking out the window you can see many video screens up on tall poles that are broadcasting advertisements for various corporate interests such as Pear, MacroFirm, MVideo and Booble.""",
             "can_get": False,
             "can_open": True,
@@ -27,6 +29,7 @@ scene = {
             "contents": []
         },
         "desk": {
+            "name": "desk",
             "description": "The desk has one drawer",
             "can_get": False,
             "can_open": False,
@@ -35,6 +38,7 @@ scene = {
             "contents": []
         },
         "drawer": {
+            "name": "drawer",
             "description": "Well...it's a drawer...",
             "can_get": False,
             "can_open": True,
@@ -53,6 +57,7 @@ scene = {
             "contents": []
         },
         "computer": {
+            "name": "computer",
             "description": """Your small black laptop sits open on the desk. It is covered in stickers from games and bands you like. The [screen] glows with light blue text""",
             "can_open": False,
             "is_open": False,
@@ -60,6 +65,7 @@ scene = {
             "contents": []
         },
         "screen": {
+            "name": "screen",
             "description": pyfiglet.figlet_format("""
             ---
             HTP !
@@ -71,6 +77,7 @@ scene = {
             "contents": []
         },
         "door": {
+            "name": "door",
             "description": "It's the door that leads out of your bedroom",
             "can_get": False,
             "can_open": True,
@@ -82,6 +89,7 @@ scene = {
             "contents": []
         },
         "bed": {
+            "name": "bed",
             "description": "A small matress on the floor.",
             "can_get": False,
             "can_open": False,
@@ -90,7 +98,8 @@ scene = {
             "contents": []
         },
         "inventory": {
-            "description": player.stats["inventory"].values(),
+            "name": "inventory",
+            "description": player.stats["inventory"],
             "can_get": False,
             "is_open": False,
             "can_exit": False,

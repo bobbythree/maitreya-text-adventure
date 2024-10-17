@@ -25,16 +25,19 @@ def describe(scene_name, noun):
 
 
 def get_item(scene_name, item):
-    """check if item is in scene and is able to be picked up. If both return true, move item (dict) from scene to player inventory. Print inventory"""
+    """check if item is in scene and is able to be picked up. If both return
+true, move item (dict) from scene to player inventory. Remove item from
+contents[]. Print inventory"""
          
     if item in scene_name.scene["nouns"] and scene_name.scene["nouns"][item]["can_get"]:
-        removed_item = scene_name.scene["nouns"].pop(item)
-        player.stats["inventory"].update(removed_item)
-        player.stats["inventory"]["can_get"] = False
+        # removed_item = scene_name.scene["nouns"].pop(item)
+        # item_name = removed_item["name"]
+        player.stats["inventory"].append(scene_name.scene["nouns"][item]["name"])
+        scene_name.scene["nouns"][item]["can_get"] = False
         for x in scene_name.scene["nouns"]:
             if item in scene_name.scene["nouns"][x]["contents"]:
                 scene_name.scene["nouns"][x]["contents"].remove(item)
-        return f'You pick up the {item}\n' f'Your Inventory: {player.stats["inventory"]["name"]}'       
+        return f'You pick up the {item}\n' f'Your Inventory: {player.stats["inventory"]}'       
             
     else: return "You cannot get that"    
         
@@ -66,4 +69,3 @@ verbs = {
         
     }    
 }
-
