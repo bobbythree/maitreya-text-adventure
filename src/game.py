@@ -9,7 +9,7 @@ import pyfiglet
 import player
 from verbs import *
 from one_word_commands import *
-from scenes import bedroom, street
+from scenes import *
 
 
 # text-parser funcs
@@ -18,7 +18,7 @@ def command_prompt(scene_name):
     loop over tokens. put verbs, nouns etc into command_list. Call
     run_command func, passing it the commands.
     """
-
+    
 
     command = input("> ")
     tokens = command.lower().split()
@@ -26,7 +26,7 @@ def command_prompt(scene_name):
     for x in tokens:
         if x in verbs.keys() and x not in command_list:
             command_list.append(x)
-        elif x in scene_name.scene["nouns"].keys() and x not in command_list:
+        elif x in scene_name["nouns"].keys() and x not in command_list:
             command_list.append(x)
         elif x in player.stats["inventory"] and x not in command_list:
             command_list.append(x)
@@ -44,16 +44,24 @@ def run_command(command, scene_name):
     if command == []: 
         print("does not compute.")
 
-    #exit commands
-    elif command[0] == "exit" and len(command) == 1:
-        print("nope.")
-    elif command[0] == "exit" and not scene_name.scene["nouns"][command[1]]["can_exit"]:
-        print(f"You can't exit {command[1]}")
-    elif command[0] == "exit" and command[1] in scene_name.scene["nouns"].keys() and scene_name.scene["nouns"][command[1]]["can_exit"]:
-        next_scene = scene_name.scene["nouns"][command[1]]["next_scene"]
-        print(f"you exit the {command[1]}")
-        print(f"Current scene: {next_scene.__name__[7:]}")
+    #navigation commands
+    if command[0] == "go" and len(command) == 1:
+        print("Go where?")
+    if command[0] == "go" and command[1] in scene_name.scene["next_scene"]:
+        next_scene = scene_name.scene[command[1]]
+        print(next_scene)
         command_prompt(next_scene)
+
+    #exit commands
+    # elif command[0] == "exit" and len(command) == 1:
+    #     print("nope.")
+    # elif command[0] == "exit" and not scene_name.scene["nouns"][command[1]]["can_exit"]:
+    #     print(f"You can't exit {command[1]}")
+    # elif command[0] == "exit" and command[1] in scene_name.scene["nouns"].keys() and scene_name.scene["nouns"][command[1]]["can_exit"]:
+    #     next_scene = scene_name.scene["nouns"][command[1]]["next_scene"]
+    #     print(f"you exit the {command[1]}")
+    #     print(f"Current scene: {next_scene.__name__[7:]}")
+    #     command_prompt(next_scene)
 
     # if no noun
     elif command[0] in verbs.keys() and len(command) == 1:
@@ -84,7 +92,10 @@ def start():
 
     game_logo = pyfiglet.figlet_format("Q U E S T", font="colossal")
     print(game_logo)
-    print("""Welcome to QUEST! You wake up in your [bedroom] which is dimly lit by artificial light coming through the [window]. In the room is your [computer] sitting on a [desk]. There is one [door] to get out.
+    print(
+    """Welcome to QUEST! You wake up in your [bedroom] which is dimly lit by
+artificial light coming through the [window]. In the room is your [computer]
+sitting on a [desk]. There is one [door] to get out.
 
 This game is played by typing two word commands, a verb followed by a noun.
 i.e. look sky, get rock, exit door, use hammer, talk man.

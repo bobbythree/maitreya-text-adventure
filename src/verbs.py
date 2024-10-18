@@ -12,13 +12,13 @@ is open(such as a door), call the item's 'description_open' property"""
 
 
     #if item is in current scene/
-    if noun in scene_name.scene["nouns"]:
-        if scene_name.scene["nouns"][noun]["is_open"] and scene_name.scene["nouns"][noun]["has_contents"]:
+    if noun in scene_name["nouns"]:
+        if scene_name["nouns"][noun]["is_open"] and scene_name["nouns"][noun]["has_contents"]:
             return f'Contents: {scene_name.scene["nouns"][noun]["contents"]}'
         if scene_name.scene["nouns"][noun]["is_open"]:
-            return scene_name.scene["nouns"][noun]["description_open"]
+            return scene_name["nouns"][noun]["description_open"]
         else:
-            return scene_name.scene["nouns"][noun]["description"]
+            return scene_name["nouns"][noun]["description"]
     # if item is in player inventory
     elif noun == player.stats["inventory"]["name"]:
         if player.stats["inventory"]["is_open"] and player.stats["inventory"]["has_contents"]:
@@ -62,6 +62,12 @@ true, open the item and change item's state to is_open: True."""
     else: return f"You cannot open {item}."
 
 
+def go_to(scene_name, next_scene):
+    print("you went")
+    
+    
+
+
 #verb dict
 verbs = {
     "look": {
@@ -73,7 +79,7 @@ verbs = {
     "open": {
         "func": open_item
     },
-    "exit": {
-
+    "go": {
+      "func": go_to  
     }
 }

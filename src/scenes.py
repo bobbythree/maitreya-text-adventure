@@ -1,14 +1,35 @@
-"""This module contains data for the scene: 'bedroom'. It contains all game
-objects (nouns) for this scene and their attributes.
+"""This module contains data for all scenes. It contains all game
+objects (nouns) and their attributes.
 """
 
 
 import player
 import pyfiglet
-from scenes import street as street
 
-
-scene = {
+street = {
+    "nouns": {
+        "street": {
+            "description": """You are on the main street outside your apartment.""",
+            "can_open": False,
+            "is_open": False,
+            "can_get": False,
+        }
+    }
+},
+staircase = {
+    "nouns": {
+        "staircase": {
+            "name": "staircase",
+            "description": "the stairs go down to a door."
+        },
+        "door": {
+            "name": "door",
+            "description": "I think it leads outside."
+        }
+    }
+},
+bedroom = {
+    "next_scene": [staircase],
     "nouns": {
         "bedroom": {
             "name": "bedroom",
@@ -17,7 +38,8 @@ scene = {
             "can_open": False,
             "is_open": False,
             "can_exit": False,
-            "contents": []
+            "contents": [],
+            "next_scene": [staircase]
         },
         "window": {
             "name": "window",
@@ -87,7 +109,7 @@ scene = {
             "has_contents": False,
             "can_exit": True,
             "description_open": "out the door is a staircase down to another door.",
-            "next_scene": street,
+            "next_scene": staircase,
             "contents": []
         },
         "bed": {
@@ -99,6 +121,15 @@ scene = {
             "can_exit": False,
             "contents": []
         },
+        "staircase": {
+            "name": "bed",
+                "description": "The stairs lead down to another door.",
+                "can_get": False,
+                "can_open": False,
+                "is_open": False,
+                "can_exit": False,
+                "contents": []
+        },
         "inventory": {
             "name": "inventory",
             "description": player.stats["inventory"],
@@ -108,4 +139,7 @@ scene = {
             "contents": []
         }
     }
-}
+},
+
+
+
