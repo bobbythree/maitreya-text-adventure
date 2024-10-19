@@ -70,13 +70,7 @@ true, open the item and change item's state to is_open: True."""
     elif current_item["can_open"] and current_item["is_open"]:
         return "It's already open!" 
     else: return f"You cannot open {item}."
-
-
-def go_to(scene_name, next_scene):
-    print("you went")
     
-    
-
 
 #verb dict
 verbs = {
@@ -90,6 +84,6 @@ verbs = {
         "func": open_item
     },
     "go": {
-      "func": go_to  
+        
     }   
 }

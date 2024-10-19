@@ -47,31 +47,9 @@ def run_command(command, scene_name):
     if command[0] == "go" and len(command) == 1:
         print("Go where?")
     if command[0] == "go" and command[1] in scene_name["next_scene"]:
-        next_scene = scene_name.scene[command[1]]
+        next_scene = [command[1]]
         print(next_scene)
         command_prompt(next_scene)
-
-    #exit commands
-    elif command[0] == "exit" and len(command) == 1: 
-        print("nope.")
-    elif command[0] == "exit" and not scene_name.scene["nouns"][command[1]]["can_exit"]:
-        print(f"You can't exit {command[1]}")
-    elif command[0] == "exit" and command[1] in scene_name.scene["nouns"].keys() and scene_name.scene["nouns"][command[1]]["can_exit"]:
-        next_scene = scene_name.scene["nouns"][command[1]]["next_scene"]        
-        print(f"you exit the {command[1]}")
-        print(f"Current scene: {next_scene.__name__[7:]}")
-        command_prompt(next_scene)                  
-
-    #exit commands
-    # elif command[0] == "exit" and len(command) == 1:
-    #     print("nope.")
-    # elif command[0] == "exit" and not scene_name.scene["nouns"][command[1]]["can_exit"]:
-    #     print(f"You can't exit {command[1]}")
-    # elif command[0] == "exit" and command[1] in scene_name.scene["nouns"].keys() and scene_name.scene["nouns"][command[1]]["can_exit"]:
-    #     next_scene = scene_name.scene["nouns"][command[1]]["next_scene"]
-    #     print(f"you exit the {command[1]}")
-    #     print(f"Current scene: {next_scene.__name__[7:]}")
-    #     command_prompt(next_scene)
 
     # if no noun
     elif command[0] in verbs.keys() and len(command) == 1:
