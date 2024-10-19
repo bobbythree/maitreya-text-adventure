@@ -18,13 +18,7 @@ def command_prompt(scene_name):
     loop over tokens. put verbs, nouns etc into command_list. Call 
     run_command func, passing it the commands.
     """
-<<<<<<< HEAD
-    
 
-=======
-
-    
->>>>>>> parent of c935d16 (code cleanup: fixed mixed indentation)
     command = input("> ")
     tokens = command.lower().split()
     command_list = []
@@ -49,15 +43,14 @@ def run_command(command, scene_name):
     if command == []: 
         print("does not compute.")
 
-<<<<<<< HEAD
     #navigation commands
     if command[0] == "go" and len(command) == 1:
         print("Go where?")
-    if command[0] == "go" and command[1] in scene_name.scene["next_scene"]:
+    if command[0] == "go" and command[1] in scene_name["next_scene"]:
         next_scene = scene_name.scene[command[1]]
         print(next_scene)
         command_prompt(next_scene)
-=======
+
     #exit commands
     elif command[0] == "exit" and len(command) == 1: 
         print("nope.")
@@ -68,7 +61,6 @@ def run_command(command, scene_name):
         print(f"you exit the {command[1]}")
         print(f"Current scene: {next_scene.__name__[7:]}")
         command_prompt(next_scene)                  
->>>>>>> parent of c935d16 (code cleanup: fixed mixed indentation)
 
     #exit commands
     # elif command[0] == "exit" and len(command) == 1:
@@ -86,16 +78,16 @@ def run_command(command, scene_name):
         print(f"{command[0]}...?")
 
     # if item is in inventory, not scene
-    elif command[0] in verbs.keys() and command[1] not in scene_name.scene["nouns"].keys() and command[1] in player.stats["inventory"].values(): 
+    elif command[0] in verbs.keys() and command[1] not in scene_name["nouns"].keys() and command[1] in player.stats["inventory"].values(): 
         output = verbs[command[0]]["func"](scene_name, command[1])
         print(output)
 
     # if either verb or noun missing
-    elif command[0] not in verbs.keys() or command[1] not in scene_name.scene["nouns"].keys(): 
+    elif command[0] not in verbs.keys() or command[1] not in scene_name["nouns"].keys(): 
         print("try saying that another way.")    
 
     # both verb and noun match
-    elif command[0] in verbs.keys() and command[1] in scene_name.scene["nouns"].keys(): 
+    elif command[0] in verbs.keys() and command[1] in scene_name["nouns"].keys(): 
         output = verbs[command[0]]["func"](scene_name, command[1])
         print(output)    
     
