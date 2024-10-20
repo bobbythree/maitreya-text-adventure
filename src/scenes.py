@@ -20,16 +20,26 @@ staircase = {
     "nouns": {
         "staircase": {
             "name": "staircase",
-            "description": "the stairs go down to a door."
+            "description": "the stairs go down to a door.",
+            "can_get": False,
+            "can_open": False,
+            "is_open": False,
+            "can_exit": False,
+            "contents": [],
         },
         "door": {
             "name": "door",
-            "description": "I think it leads outside."
+            "description": "I think it leads outside.",
+            "can_get": False,
+            "can_open": False,
+            "is_open": False,
+            "can_exit": False,
+            "contents": [],
         }
     }
 },
 bedroom = {
-    "next_scene": [staircase],
+    "next_scene": ["staircase"],
     "nouns": {
         "bedroom": {
             "name": "bedroom",
@@ -39,7 +49,6 @@ bedroom = {
             "is_open": False,
             "can_exit": False,
             "contents": [],
-            "next_scene": [staircase]
         },
         "window": {
             "name": "window",
@@ -109,7 +118,6 @@ bedroom = {
             "has_contents": False,
             "can_exit": True,
             "description_open": "out the door is a staircase down to another door.",
-            "next_scene": staircase,
             "contents": []
         },
         "bed": {
@@ -121,7 +129,7 @@ bedroom = {
             "can_exit": False,
             "contents": []
         },
-        "staircase": {
+         "staircase": {
             "name": "bed",
                 "description": "The stairs lead down to another door.",
                 "can_get": False,

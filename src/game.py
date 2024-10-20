@@ -18,7 +18,7 @@ def command_prompt(scene_name):
     loop over tokens. put verbs, nouns etc into command_list. Call 
     run_command func, passing it the commands.
     """
-
+   
     command = input("> ")
     tokens = command.lower().split()
     command_list = []
@@ -47,7 +47,7 @@ def run_command(command, scene_name):
     if command[0] == "go" and len(command) == 1:
         print("Go where?")
     if command[0] == "go" and command[1] in scene_name["next_scene"]:
-        next_scene = [command[1]]
+        next_scene = command[1]
         print(next_scene)
         command_prompt(next_scene)
 
