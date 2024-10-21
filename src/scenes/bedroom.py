@@ -1,32 +1,15 @@
-"""This module contains data for all scenes. It contains all game
+"""This module contains data for the scene: bedroom. It contains the scene's
 objects (nouns) and their attributes.
 """
 
 
 import player
 import pyfiglet
+from scenes import staircase as staircase
 
-street = {
-    "nouns": {
-        "street": {
-            "description": """You are on the main street outside your apartment.""",
-        }
-    }
-},
-staircase = {
-    "nouns": {
-        "staircase": {
-            "name": "staircase",
-            "description": "the stairs go down to a door.",
-        },
-        "door": {
-            "name": "door",
-            "description": "I think it leads outside.",            
-        }
-    }
-},
-bedroom = {
-    "next_scene": ("staircase"),
+
+scene = {
+    "next_scene": staircase,
     "nouns": {
         "bedroom": {
             "name": "bedroom",
@@ -35,7 +18,7 @@ bedroom = {
             "can_open": False,
             "is_open": False,
             "can_exit": False,
-            "contents": [],
+            "contents": []
         },
         "window": {
             "name": "window",
