@@ -54,8 +54,8 @@ def run_command(command, scene_name):
         print(f"Current Scene: {command[1]}")
         next_scene = scene_name.scene["next_scene"]
         command_prompt(next_scene)
-            
-                
+    elif command[0] == "go" and command[1] not in str(scene_name.scene["next_scene"]):
+        print("You can't go there.")
            
     # if no noun
     elif command[0] in verbs.keys() and len(command) == 1:
