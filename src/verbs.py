@@ -13,26 +13,26 @@ is open(such as a door), call the item's 'description_open' property"""
 
     #if item is in current scene/
 
-    if noun in scene_name["nouns"]:
-        if scene_name["nouns"][noun]["is_open"] and scene_name["nouns"][noun]["has_contents"]:
-            return f'Contents: {scene_name["nouns"][noun]["contents"]}'
-        if scene_name["nouns"][noun]["is_open"]:
-            return scene_name["nouns"][noun]["description_open"]
-        else:
-            return scene_name["nouns"][noun]["description"]
-
-    if noun in scene_name["nouns"]:
-        if scene_name["nouns"][noun]["is_open"] and scene_name["nouns"][noun]["has_contents"]:
-            return f'Contents: {scene_name["nouns"][noun]["contents"]}'    
+    if noun in scene_name.scene["nouns"]:
+        if scene_name.scene["nouns"][noun]["is_open"] and scene_name.scene["nouns"][noun]["has_contents"]:
+            return f'Contents: {scene_name.scene["nouns"][noun]["contents"]}'
         if scene_name.scene["nouns"][noun]["is_open"]:
-            return scene_name["nouns"][noun]["description_open"]
+            return scene_name.scene["nouns"][noun]["description_open"]
+        else:
+            return scene_name.scene["nouns"][noun]["description"]
+
+    if noun in scene_name.scene["nouns"]:
+        if scene_name.scene["nouns"][noun]["is_open"] and scene_name.scene["nouns"][noun]["has_contents"]:
+            return f'Contents: {scene_name.scenes["nouns"][noun]["contents"]}'    
+        if scene_name.scene.scene["nouns"][noun]["is_open"]:
+            return scene_name.scene["nouns"][noun]["description_open"]
         else: 
-            return scene_name["nouns"][noun]["description"]
+            return scene_name.scene["nouns"][noun]["description"]
 
     # if item is in player inventory
     elif noun == player.stats["inventory"]["name"]:
         if player.stats["inventory"]["is_open"] and player.stats["inventory"]["has_contents"]:
-            return f'Contents: {scene_name["nouns"][noun]["contents"]}'
+            return f'Contents: {scene_name.scene["nouns"][noun]["contents"]}'
         if player.stats["inventory"]["is_open"]:
             return player.stats["inventory"]["description_open"]
         else: 
@@ -46,13 +46,13 @@ remove item from contents[]. Print inventory
 """
 
          
-    if item in scene_name["nouns"] and scene_name["nouns"][item]["can_get"]:
-        current_item = scene_name["nouns"][item]["name"]
+    if item in scene_name.scene["nouns"] and scene_name.scene["nouns"][item]["can_get"]:
+        current_item = scene_name.scene["nouns"][item]["name"]
         player.stats["inventory"].append(current_item)
-        scene_name["nouns"][item]["can_get"] = False
-        for x in scene_name["nouns"]:
-            if item in scene_name["nouns"][x]["contents"]:
-                scene_name["nouns"][x]["contents"].remove(item)
+        scene_name.scene["nouns"][item]["can_get"] = False
+        for x in scene_name.scene["nouns"]:
+            if item in scene_name.scene["nouns"][x]["contents"]:
+                scene_name.scene["nouns"][x]["contents"].remove(item)
         return f'You pick up the {item}\n' f'Your Inventory: {player.stats["inventory"]}'       
             
     else: return "You cannot get that"    
@@ -63,7 +63,7 @@ def open_item(scene_name, item):
 true, open the item and change item's state to is_open: True."""
 
     
-    current_item = scene_name["nouns"][item]
+    current_item = scene_name.scene["nouns"][item]
     if current_item["can_open"] and not current_item["is_open"]:
         current_item["is_open"] = True
         return f"You open the {item}."        

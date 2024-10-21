@@ -9,23 +9,27 @@ import pyfiglet
 import player
 from verbs import *
 from one_word_commands import *
-from scenes import *
+from scenes import (
+    bedroom,
+    street,
+    staircase
+)
 
-
+print(street)
 # text-parser funcs
 def command_prompt(scene_name):
     """display the command prompt in the current scene. tokenize user input.
     loop over tokens. put verbs, nouns etc into command_list. Call 
     run_command func, passing it the commands.
     """
-
+    
     command = input("> ")
     tokens = command.lower().split()
     command_list = []
     for x in tokens:       
         if x in verbs.keys() and x not in command_list:
             command_list.append(x)
-        elif x in scene_name["nouns"].keys() and x not in command_list:
+        elif x in scene_name.scene["nouns"].keys() and x not in command_list:
             command_list.append(x)
         elif x in player.stats["inventory"] and x not in command_list:
             command_list.append(x)       
@@ -44,28 +48,30 @@ def run_command(command, scene_name):
         print("does not compute.")
 
     #navigation commands
-    if command[0] == "go" and len(command) == 1:
+    elif command[0] == "go" and len(command) == 1:
         print("Go where?")
-    if command[0] == "go" and command[1] in scene_name["next_scene"]:
-        next_scene = [command[1]]
-        print(next_scene)
+    elif command[0] == "go" and command[1] in str(scene_name.scene["next_scene"]):
+        print(f"Current Scene: {command[1]}")
+        next_scene = scene_name.scene["next_scene"]
         command_prompt(next_scene)
-
+    elif command[0] == "go" and command[1] not in str(scene_name.scene["next_scene"]):
+        print("You can't go there.")
+           
     # if no noun
     elif command[0] in verbs.keys() and len(command) == 1:
         print(f"{command[0]}...?")
 
     # if item is in inventory, not scene
-    elif command[0] in verbs.keys() and command[1] not in scene_name["nouns"].keys() and command[1] in player.stats["inventory"].values(): 
+    elif command[0] in verbs.keys() and command[1] not in scene_name.scene["nouns"].keys() and command[1] in player.stats["inventory"].values(): 
         output = verbs[command[0]]["func"](scene_name, command[1])
         print(output)
 
     # if either verb or noun missing
-    elif command[0] not in verbs.keys() or command[1] not in scene_name["nouns"].keys(): 
+    elif command[0] not in verbs.keys() or command[1] not in scene_name.scene["nouns"].keys(): 
         print("try saying that another way.")    
 
     # both verb and noun match
-    elif command[0] in verbs.keys() and command[1] in scene_name["nouns"].keys(): 
+    elif command[0] in verbs.keys() and command[1] in scene_name.scene["nouns"].keys(): 
         output = verbs[command[0]]["func"](scene_name, command[1])
         print(output)    
     
