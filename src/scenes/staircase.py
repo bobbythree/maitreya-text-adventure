@@ -10,13 +10,12 @@ scene = {
     "nouns": {
         "staircase": {
             "name": "staircase",
-            "description": "the stairs go down to a door.",
+            "description": "the stairs go down to a [door].",
             "can_get": False,
                 "can_open": False,
                 "is_open": False,
                 "has_contents": False,
                 "can_exit": False,
-                "description_open": "out the door is a staircase down to another [door].",
                 "contents": []
         },
         "door": {
@@ -31,7 +30,8 @@ scene = {
                 "contents": []            
         },
         "street": {
-            "description": """Looking though the door you can see the street
+            "name": "street",
+            "description": """Looking though the door you can see the [street]
 outside.""",
             "can_get": False,
             "can_open": False,

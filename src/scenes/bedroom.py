@@ -33,7 +33,7 @@ scene = {
         },
         "desk": {
             "name": "desk",
-            "description": "The desk has one drawer",
+            "description": "The desk has one [drawer]",
             "can_get": False,
             "can_open": False,
             "is_open": False,
@@ -81,13 +81,13 @@ scene = {
         },
         "door": {
             "name": "door",
-            "description": "It's the door that leads out of your bedroom",
+            "description": "It's the door that leads out of your [bedroom]",
             "can_get": False,
             "can_open": True,
             "is_open": False,
             "has_contents": False,
             "can_exit": True,
-            "description_open": "out the door is a staircase down to another door.",
+            "description_open": "out the door is a [staircase] down to another door.",
             "contents": []
         },
         "bed": {
@@ -100,7 +100,7 @@ scene = {
             "contents": []
         },
          "staircase": {
-            "name": "bed",
+            "name": "staircase",
                 "description": "The stairs lead down to another door.",
                 "can_get": False,
                 "can_open": False,
