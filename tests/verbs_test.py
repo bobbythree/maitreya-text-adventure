@@ -8,7 +8,7 @@ def test_describe_success():
     
 
 def test_get_success():
-    assert verbs.get_item(bedroom, "thumbdrive") == "You pick up the thumbdrive\n""Your Inventory: thumbdrive"
+    assert verbs.get_item(bedroom, "thumbdrive") == "You pick up the thumbdrive\n""Your Inventory: ['thumbdrive']"
 
 
 def test_get_fail():
