@@ -13,7 +13,8 @@ scene = {
     "nouns": {
         "bedroom": {
             "name": "bedroom",
-            "description": """Your bedroom is small and cluttered.""",
+            "description": 
+            """Your bedroom is small and cluttered.""",
             "can_get": False,
             "can_open": False,
             "is_open": False,
@@ -22,18 +23,25 @@ scene = {
         },
         "window": {
             "name": "window",
-            "description": """Looking out the window you can see many video screens up on tall poles that are broadcasting advertisements for various corporate interests such as Pear, MacroFirm, MVideo and Booble.""",
+            "description": 
+"""The window is very dirty and difficult to see through. All you see is the
+indication of artificial light outside.""",
             "can_get": False,
             "can_open": True,
             "is_open": False,
             "has_contents": False,
             "can_exit": False,
-            "description_open": """Looking out the window you can see many video screens up on tall poles that are broadcasting advertisements for various corporate interests such as Pear, MacroFirm, MVideo and Booble.""",
+            "description_open":
+"""Looking out the open window you can see many video screens up on tall poles
+that are broadcasting advertisements for various corporate interests such as
+Pear, MacroFirm, MVideo and Booble.""",
             "contents": []
         },
         "desk": {
             "name": "desk",
-            "description": "The desk has one [drawer]",
+            "description": 
+"""Your small simple desk has your [computer] sitting on it. The desk has one
+[drawer]""",
             "can_get": False,
             "can_open": False,
             "is_open": False,
@@ -42,7 +50,8 @@ scene = {
         },
         "drawer": {
             "name": "drawer",
-            "description": "Well...it's a drawer...",
+            "description":
+"""Well...it's a drawer...""",
             "can_get": False,
             "can_open": True,
             "is_open": False,
@@ -52,7 +61,10 @@ scene = {
         },
         "thumbdrive": {
             "name": "thumbdrive",
-            "description": """A mostly obsolete piece of technology that stores files and data. You'd be hard pressed to even find a computer that has a port for it. Yours sure doesn't.""",
+            "description":
+"""A mostly obsolete piece of technology that stores files and data. You'd be
+hard pressed to even find a computer that has a port for it. Yours sure
+doesn't.""",
             "can_get": True,
             "can_open": False,
             "is_open": False,
@@ -61,7 +73,9 @@ scene = {
         },
         "computer": {
             "name": "computer",
-            "description": """Your small black laptop sits open on the desk. It is covered in stickers from games and bands you like. The [screen] glows with light blue text""",
+            "description": 
+"""Your small black laptop sits open on the desk. It is covered in stickers
+from games and bands you like. The [screen] glows with light blue text""",
             "can_open": False,
             "is_open": False,
             "can_exit": False,
@@ -81,18 +95,21 @@ scene = {
         },
         "door": {
             "name": "door",
-            "description": "It's the door that leads out of your [bedroom]",
+            "description": 
+"""It's the door that leads out of your [bedroom]""",
             "can_get": False,
             "can_open": True,
             "is_open": False,
             "has_contents": False,
             "can_exit": True,
-            "description_open": "out the door is a [staircase] down to another door.",
+            "description_open":
+"""Out the door is a [staircase] down to another door.""",
             "contents": []
         },
         "bed": {
             "name": "bed",
-            "description": "A small matress on the floor.",
+            "description": 
+"""A small matress on the floor.""",
             "can_get": False,
             "can_open": False,
             "is_open": False,
@@ -101,7 +118,8 @@ scene = {
         },
          "staircase": {
             "name": "staircase",
-                "description": "The stairs lead down to another door.",
+                "description":
+"""The stairs lead down to another door.""",
                 "can_get": False,
                 "can_open": False,
                 "is_open": False,

@@ -10,7 +10,9 @@ scene = {
     "nouns": {
         "staircase": {
             "name": "staircase",
-            "description": "the stairs go down to a [door].",
+            "description": """You are now in the staircase that leads out of
+your apartment. It is a shared public staircase that leads down to a heavy
+door.""",
             "can_get": False,
                 "can_open": False,
                 "is_open": False,
