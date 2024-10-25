@@ -14,6 +14,7 @@ from scenes import (
     street,
     staircase
 )
+from colors import *
 
 
 # text-parser funcs
@@ -89,14 +90,14 @@ def start():
     game_logo = pyfiglet.figlet_format("Q U E S T", font="colossal")
     print(game_logo)
     print(
-    """Welcome to QUEST! You wake up in your [bedroom] which is dimly lit by
+    f"""{GREEN}Welcome to QUEST! You wake up in your [bedroom] which is dimly lit by
 artificial light coming through the [window]. In the room is your [computer]
 sitting on a [desk]. There is one [door] to get out.
 
 This game is played by typing two word commands, a verb followed by a noun.
 i.e. look sky, get rock, exit door, use hammer, talk man. To navigate,
 type 'go' followed by a location.
-Items that can be interacted with will appear in [brackets]. """)
+Items that can be interacted with will appear in [brackets].{DEFAULT} """)
 
 if __name__ == "__main__":
     start()
