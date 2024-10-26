@@ -5,6 +5,7 @@ as the game's start function.
 """
 
 
+import os
 import pyfiglet
 import player
 from verbs import *
@@ -83,6 +84,9 @@ def run_command(command, scene_name):
 
 
 # start of gameplay
+def clear_terminal():
+    os.system("cls" if os.name == "nt" else "clear")
+
 def start():
     """display welcome message. Call command_prompt func with first scene."""
 
@@ -100,6 +104,7 @@ type 'go' followed by a location.
 Items that can be interacted with will appear in [brackets].{DEFAULT} """)
 
 if __name__ == "__main__":
+    clear_terminal()
     start()
 
 
