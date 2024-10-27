@@ -44,6 +44,7 @@ def run_command(command, scene_name):
     and errors. If no errors, execute the verb's function from verbs.py. Call the
     command_prompt func again."""
 
+    print(GREEN)
 
     # if no words matched known words
     if command == []:
@@ -56,6 +57,7 @@ def run_command(command, scene_name):
         next_scene = scene_name.scene["next_scene"]
         print(next_scene.scene["nouns"][command[1]]["description"])
         print(f"\nCurrent Scene: {command[1]}")
+        print(CYAN)
         command_prompt(next_scene)
     elif command[0] == "go" and command[1] not in str(scene_name.scene["next_scene"]):
         print("\nYou can't go there.")
@@ -76,10 +78,10 @@ def run_command(command, scene_name):
     # both verb and noun match
     elif command[0] in verbs.keys() and command[1] in scene_name.scene["nouns"].keys():
         output = verbs[command[0]]["func"](scene_name, command[1])
-        print()
         print(output)
 
     #loop back into the prompt
+    print(CYAN)
     command_prompt(scene_name)
 
 
@@ -91,17 +93,18 @@ def start():
     """display welcome message. Call command_prompt func with first scene."""
 
 
-    game_logo = pyfiglet.figlet_format("Q U E S T", font="colossal")
+    game_logo = pyfiglet.figlet_format("MAITREYA's QUEST", font="smkeyboard")
+    print(CYAN)
     print(game_logo)
     print(
-    f"""{GREEN}Welcome to QUEST! You wake up in your [bedroom] which is dimly lit by
-artificial light coming through the [window]. In the room is your [computer]
-sitting on a [desk]. There is one [door] to get out.
+    f"""{GREEN}Welcome to {LIGHT_GREEN}MAITREYA'S QUEST! {GREEN}This game is played by typing two word commands,
+a verb followed by a noun. i.e. look sky, get rock, exit door, use hammer,
+talk man. To navigate, type 'go' followed by a location. Items that can be
+interacted with will appear in [brackets].
 
-This game is played by typing two word commands, a verb followed by a noun.
-i.e. look sky, get rock, exit door, use hammer, talk man. To navigate,
-type 'go' followed by a location.
-Items that can be interacted with will appear in [brackets].{DEFAULT} """)
+You wake up in your [bedroom] which is dimly lit by artificial light coming
+through the [window]. In the room is your [computer] sitting on a [desk].
+There is one [door] to get out.{CYAN} """)
 
 if __name__ == "__main__":
     clear_terminal()
