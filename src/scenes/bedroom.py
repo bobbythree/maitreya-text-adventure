@@ -24,7 +24,7 @@ scene = {
         "window": {
             "name": "window",
             "description": 
-"""The window is very dirty and difficult to see through. All you see is the
+"""The [window] is very dirty and difficult to see through. All you see is the
 indication of artificial light outside.""",
             "can_get": False,
             "can_open": True,
@@ -75,7 +75,7 @@ doesn't.""",
             "name": "computer",
             "description": 
 """Your small black laptop sits open on the desk. It is covered in stickers
-from games and bands you like. The [screen] glows with light blue text""",
+from games and bands you like. The [screen] glows with green text""",
             "can_open": False,
             "is_open": False,
             "can_exit": False,
