@@ -1,4 +1,4 @@
-# terminal-text-adventure
+# Maitreya's Quest
 ## this is a text adventure work in progress that runs in the terminal
 
 ## to run:
@@ -7,5 +7,5 @@
 ~ be sure you have python3 and pip3 installed  
 ~ create and activate a virtual Python environment in the project's root directory   
 i.e. type ```python3 -m venv .venv``` and then ```source .venv/bin/activate```   
-~ type ```pip3 install -r .\requirements.txt``` to install dependencies  
+~ type ```pip3 install -r requirements.txt``` to install dependencies  
 ~ type ```python3 game.py``` to start game
