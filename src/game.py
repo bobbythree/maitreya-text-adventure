@@ -56,7 +56,7 @@ def run_command(command, scene_name):
     elif command[0] == "go" and command[1] in str(scene_name.scene["next_scene"]):
         next_scene = scene_name.scene["next_scene"]
         print(next_scene.scene["nouns"][command[1]]["description"])
-        print(f"\nCurrent Scene: {command[1]}")
+        print(f"\n{BOLD}Current Scene: {GREEN}{command[1]}")
         print(CYAN)
         command_prompt(next_scene)
     elif command[0] == "go" and command[1] not in str(scene_name.scene["next_scene"]):
