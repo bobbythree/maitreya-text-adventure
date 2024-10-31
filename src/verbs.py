@@ -3,7 +3,7 @@
 
 from scenes import bedroom, street
 import player
-from colors import *
+from colors import colors
 
 
 def describe(scene_name, noun):
@@ -54,10 +54,9 @@ remove item from contents[]. Print inventory
         for x in scene_name.scene["nouns"]:
             if item in scene_name.scene["nouns"][x]["contents"]:
                 scene_name.scene["nouns"][x]["contents"].remove(item)
-        return f'You pick up the {item}\n' f'{BOLD}Your Inventory:{GREEN} {player.stats["inventory"]}'       
-            
-    else: return "You cannot get that"    
-        
+        return f'You pick up the {item}\n' f'{colors["bold"]}Your Inventory:{colors["green"]} {player.stats["inventory"]}'
+
+    else: return "You cannot get that"
 
 def open_item(scene_name, item):
     """Check if item is openable and item is not already open. If both return

@@ -8,14 +8,14 @@ as the game's start function.
 import os
 import pyfiglet
 import player
-from verbs import *
+from verbs import verbs
 from one_word_commands import *
 from scenes import (
     bedroom,
     street,
     staircase
 )
-from colors import *
+from colors import colors
 
 
 # text-parser funcs
@@ -44,7 +44,7 @@ def run_command(command, scene_name):
     and errors. If no errors, execute the verb's function from verbs.py. Call the
     command_prompt func again."""
 
-    print(GREEN)
+    print(colors["green"])
 
     # if no words matched known words
     if command == []:
@@ -56,8 +56,8 @@ def run_command(command, scene_name):
     elif command[0] == "go" and command[1] in str(scene_name.scene["next_scene"]):
         next_scene = scene_name.scene["next_scene"]
         print(next_scene.scene["nouns"][command[1]]["description"])
-        print(f"\n{BOLD}Current Scene: {GREEN}{command[1]}")
-        print(CYAN)
+        print(f"\n{colors['bold']}Current Scene: {colors['green']}{command[1]}")
+        print(colors["cyan"])
         command_prompt(next_scene)
     elif command[0] == "go" and command[1] not in str(scene_name.scene["next_scene"]):
         print("\nYou can't go there.")
@@ -81,7 +81,7 @@ def run_command(command, scene_name):
         print(output)
 
     #loop back into the prompt
-    print(CYAN)
+    print(colors['cyan'])
     command_prompt(scene_name)
 
 
@@ -94,17 +94,17 @@ def start():
 
 
     game_logo = pyfiglet.figlet_format("MAITREYA's QUEST", font="smkeyboard")
-    print(CYAN)
+    print(colors["cyan"])
     print(game_logo)
     print(
-    f"""{GREEN}Welcome to {LIGHT_GREEN}MAITREYA'S QUEST! {GREEN}This game is played by typing two word commands,
+    f"""{colors['green']}Welcome to {colors['light_green']}MAITREYA'S QUEST! {colors['green']}This game is played by typing two word commands,
 a verb followed by a noun. i.e. look sky, get rock, exit door, use hammer,
 talk man. To navigate, type 'go' followed by a location. Items that can be
 interacted with will appear in [brackets].
 
 You wake up in your [bedroom] which is dimly lit by artificial light coming
 through the [window]. In the room is your [computer] sitting on a [desk].
-There is one [door] to get out.{CYAN} """)
+There is one [door] to get out.{colors['cyan']} """)
 
 if __name__ == "__main__":
     clear_terminal()
