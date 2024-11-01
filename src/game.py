@@ -24,7 +24,7 @@ def command_prompt(scene_name):
     loop over tokens. put verbs, nouns etc into command_list. Call 
     run_command func, passing it the commands.
     """
-
+    
     command = input("> ")
     tokens = command.lower().split()
     command_list = []
