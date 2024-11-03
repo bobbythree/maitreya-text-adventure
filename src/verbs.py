@@ -15,21 +15,12 @@ item has contents. Decribe item or item contents. If item has no contents and
 is open(such as a door), call the item's 'description_open' property"""
 
 
-    #if item is in current scene/
-
+    #if item is in current scene
     if noun in scene_name.scene["nouns"]:
         if scene_name.scene["nouns"][noun]["is_open"] and scene_name.scene["nouns"][noun]["has_contents"]:
             for x in scene_name.scene["nouns"][noun]["contents"]:
                 return f'Contents: {x}'
         if scene_name.scene["nouns"][noun]["is_open"]:
-            return scene_name.scene["nouns"][noun]["description_open"]
-
-        return scene_name.scene["nouns"][noun]["description"]
-
-    if noun in scene_name.scene["nouns"]:
-        if scene_name.scene["nouns"][noun]["is_open"] and scene_name.scene["nouns"][noun]["has_contents"]:
-            return f'Contents: {scene_name.scenes["nouns"][noun]["contents"]}'
-        if scene_name.scene.scene["nouns"][noun]["is_open"]:
             return scene_name.scene["nouns"][noun]["description_open"]
 
         return scene_name.scene["nouns"][noun]["description"]
@@ -51,16 +42,14 @@ remove item from contents[]. Print inventory
 """
 
 
-    if item in scene_name.scene["nouns"] and scene_name.scene["nouns"][item]["can_get"]:
-        current_item = scene_name.scene["nouns"][item]["name"]
-        player.stats["inventory"].append(current_item)
-        scene_name.scene["nouns"][item]["can_get"] = False
-        for x in scene_name.scene["nouns"]:
-            if item in scene_name.scene["nouns"][x]["contents"]:
-                scene_name.scene["nouns"][x]["contents"].remove(item)
-        return f'You pick up the {item}\n' f'{colors["bold"]}Your Inventory:{colors["green"]} {player.stats["inventory"]}'
+    for x in scene_name.scene["nouns"]:
+        item_contents = scene_name.scene["nouns"][x]["contents"]
+        if item in item_contents:
+            player.stats["inventory"].append(
+scene_name.scene["nouns"][x]["contents"][item]["name"])
 
-    return "You cannot get that"
+    return f'You pick up the {item}\n' f'{colors["bold"]}Your Inventory:{colors["green"]} {player.stats["inventory"]}'
+
 
 def open_item(scene_name, item):
     """Check if item is openable and item is not already open. If both return
