@@ -57,20 +57,20 @@ Pear, MacroFirm, MVideo and Booble.""",
             "is_open": False,
             "has_contents": True,
             "can_exit": False,
-            "contents": ["thumbdrive"]
-        },
-        "thumbdrive": {
-            "name": "thumbdrive",
-            "description":
+            "contents": {
+                "thumbdrive": {
+                    "name": "thumbdrive",
+                        "description":
 """A mostly obsolete piece of technology that stores files and data. You'd be
-hard pressed to even find a computer that has a port for it. Yours sure
-doesn't.""",
-            "can_get": True,
-            "can_open": False,
-            "is_open": False,
-            "can_exit": False,
-            "contents": []
-        },
+hard pressed to even find a computer that has a port for it. Yours sure doesn't.""",
+                "can_get": True,
+                "can_open": False,
+                "is_open": False,
+                "can_exit": False,
+                "contents": []
+                },    
+            }
+        },        
         "computer": {
             "name": "computer",
             "description": 
