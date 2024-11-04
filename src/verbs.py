@@ -1,6 +1,6 @@
 """This module contains all verbs for the game and their functions."""
 
-
+import pdb
 from scenes import bedroom, street
 import player
 from colors import colors
@@ -13,7 +13,6 @@ def describe(scene_name, noun):
     """check if item is in scene or in inventory. Check if item is open and if
 item has contents. Decribe item or item contents. If item has no contents and
 is open(such as a door), call the item's 'description_open' property"""
-
 
     #if item is in current scene
     if noun in scene_name.scene["nouns"]:
@@ -40,7 +39,6 @@ def get_item(scene_name, item):
 true, add item to player inventory. If item was in another item's contents
 remove item from contents[]. Print inventory
 """
-
 
     for x in scene_name.scene["nouns"]:
         item_contents = scene_name.scene["nouns"][x]["contents"]

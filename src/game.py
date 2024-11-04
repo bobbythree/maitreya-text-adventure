@@ -38,7 +38,7 @@ def command_prompt(scene_name):
         for i in scene_name.scene["nouns"].values():
             if x in i["contents"]:
                 command_list.append(x)
-    print(command_list)
+
     run_command(command_list, scene_name)
 
 
@@ -65,30 +65,25 @@ def run_command(command, scene_name):
     elif command[0] == "go" and command[1] not in str(scene_name.scene["next_scene"]):
         print("\nYou can't go there.")
 
-    #if item is inside another item
-    for i in scene_name.scene["nouns"].values():
-        if command[0] in verbs.keys() and command[1] in i["contents"]:
-            output = verbs[command[0]]["func"](scene_name, command[1])
-            print(output)
-
     # if no noun
-    if command[0] in verbs.keys() and len(command) == 1:
+    elif command[0] in verbs.keys() and len(command) == 1:
         print(f"{command[0]}...?")
+    elif command[0] in scene_name.scene["nouns"] and len(command) == 1:
+        print("wha??")
 
     # if item is in inventory, not scene
     elif command[0] in verbs.keys() and command[1] not in scene_name.scene["nouns"].keys() and command[1] in player.stats["inventory"]:
         output = verbs[command[0]]["func"](scene_name, command[1])
         print(output)
 
-    # if either verb or noun missing
-    elif command[0] not in verbs.keys() or command[1] not in scene_name.scene["nouns"].keys():
-        print("\ntry saying that another way.")
-
     # both verb and noun match
-    if command[0] in verbs.keys() and command[1] in scene_name.scene["nouns"].keys():
+    elif command[0] in verbs.keys() and command[1] in scene_name.scene["nouns"].keys():
         output = verbs[command[0]]["func"](scene_name, command[1])
         print(output)
 
+    elif [output := verbs[command[0]]["func"] (scene_name, command[1]) for i in scene_name.scene["nouns"].values() if command[0] == "get" and command[1] in i["contents"]]:
+        print(output)
+    
     #loop back into the prompt
     print(colors['cyan'])
     command_prompt(scene_name)
