@@ -55,7 +55,7 @@ def run_command(command, scene_name):
 
     #navigation commands
     elif command[0] == "go" and len(command) == 1:
-        print("\nGo where?")
+        print("Go where?")
     elif command[0] == "go" and command[1] in str(scene_name.scene["next_scene"]):
         next_scene = scene_name.scene["next_scene"]
         print(next_scene.scene["nouns"][command[1]]["description"])
@@ -63,7 +63,7 @@ def run_command(command, scene_name):
         print(colors["cyan"])
         command_prompt(next_scene)
     elif command[0] == "go" and command[1] not in str(scene_name.scene["next_scene"]):
-        print("\nYou can't go there.")
+        print("You can't go there.")
 
     # if no noun
     elif command[0] in verbs.keys() and len(command) == 1:

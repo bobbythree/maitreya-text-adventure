@@ -43,8 +43,13 @@ remove item from contents[]. Print inventory
     for x in scene_name.scene["nouns"]:
         item_contents = scene_name.scene["nouns"][x]["contents"]
         if item in item_contents:
-            player.stats["inventory"].append(
+            if item not in player.stats["inventory"]:
+                player.stats["inventory"].append(
 scene_name.scene["nouns"][x]["contents"][item]["name"])
+            #TODO: remove item from parent item
+            else:
+                return "You already have it!"
+
 
     return f'You pick up the {item}\n' f'{colors["bold"]}Your Inventory:{colors["green"]} {player.stats["inventory"]}'
 
