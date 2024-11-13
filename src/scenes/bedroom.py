@@ -52,6 +52,7 @@ Pear, MacroFirm, MVideo and Booble.""",
             "name": "drawer",
             "description":
 """Well...it's a drawer...""",
+            "description_open": "The drawer is empty",
             "can_get": False,
             "can_open": True,
             "is_open": False,

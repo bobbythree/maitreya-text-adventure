@@ -40,19 +40,26 @@ true, add item to player inventory. If item was in another item's contents
 remove item from contents[]. Print inventory
 """
 
+    if item in scene_name.scene["nouns"] and scene_name.scene["nouns"][item]["can_get"]:
+        if item not in player.stats["inventory"]:
+            player.stats["inventory"].append(
+        scene_name.scene["nouns"][x]["contents"][item]["name"])
+            return f'You pick up the {item}\n' f'{colors["bold"]}Your Inventory:{colors["green"]} {player.stats["inventory"]}'
+        
+        
     for x in scene_name.scene["nouns"]:
         item_contents = scene_name.scene["nouns"][x]["contents"]
-        if item in item_contents:
+        if item in item_contents and item_contents[item]["can_get"]:
             if item not in player.stats["inventory"]:
                 player.stats["inventory"].append(
 scene_name.scene["nouns"][x]["contents"][item]["name"])
-            #TODO: remove item from parent item
-            else:
+                del item_contents[item]
+                return f'You pick up the {item}\n' f'{colors["bold"]}Your Inventory:{colors["green"]} {player.stats["inventory"]}'
+            
+            if item in player.stats["inventory"]:
                 return "You already have it!"
-
-
-    return f'You pick up the {item}\n' f'{colors["bold"]}Your Inventory:{colors["green"]} {player.stats["inventory"]}'
-
+        
+    else: return "you cannot get that."
 
 def open_item(scene_name, item):
     """Check if item is openable and item is not already open. If both return
