@@ -47,6 +47,7 @@ def run_command(command, scene_name):
     and errors. If no errors, execute the verb's function from verbs.py. 
     Call the command_prompt func again."""
 
+
     print(colors["green"])
 
     # if no words matched known words
@@ -62,6 +63,7 @@ def run_command(command, scene_name):
         print(f"\n{colors['bold']}Current Scene: {colors['green']}{command[1]}")
         print(colors["cyan"])
         command_prompt(next_scene)
+
     elif command[0] == "go" and command[1] not in str(scene_name.scene["next_scene"]):
         print("You can't go there.")
 
@@ -71,7 +73,7 @@ def run_command(command, scene_name):
     elif command[0] in scene_name.scene["nouns"] and len(command) == 1:
         print("wha??")
 
-    # if item is in inventory, not scene
+    # if item is in inventory
     elif command[0] in verbs.keys() and command[1] not in scene_name.scene["nouns"].keys() and command[1] in player.stats["inventory"]:
         output = verbs[command[0]]["func"](scene_name, command[1])
         print(output)
@@ -84,7 +86,7 @@ def run_command(command, scene_name):
     # get or describe item inside something
     elif [output := verbs[command[0]]["func"] (scene_name, command[1]) for i in scene_name.scene["nouns"].values() if command[1] in i["contents"] and i ["is_open"]]:
         print(output)
-    
+
     #loop back into the prompt
     print(colors['cyan'])
     command_prompt(scene_name)
@@ -92,7 +94,10 @@ def run_command(command, scene_name):
 
 # start of gameplay
 def clear_terminal():
+    """Clear the terminal"""
+
     os.system("cls" if os.name == "nt" else "clear")
+
 
 def start():
     """display welcome message. Call command_prompt func with first scene."""

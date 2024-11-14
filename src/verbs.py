@@ -36,7 +36,6 @@ is open(such as a door), call the item's 'description_open' property"""
 
         return player.stats["inventory"][noun]["description"]
 
-    
 
 def get_item(scene_name, item):
     """check if item is in scene and is able to be picked up. If both return
@@ -60,8 +59,8 @@ remove item from contents[]. Print inventory
                 del item_contents[item]
                 return f'You pick up the {item}\n' f'{colors["bold"]}Your Inventory:{colors["green"]} {player.stats["inventory"][item]["name"]}'
 
-
     return "you cannot get that."
+
 
 def open_item(scene_name, item):
     """Check if item is openable and item is not already open. If both return
