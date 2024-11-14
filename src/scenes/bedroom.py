@@ -68,6 +68,7 @@ hard pressed to even find a computer that has a port for it. Yours sure doesn't.
                 "can_open": False,
                 "is_open": False,
                 "can_exit": False,
+                "has_contents": False,
                 "contents": []
                 },    
             }
@@ -133,7 +134,7 @@ from games and bands you like. The [screen] glows with green text""",
             "can_get": False,
             "is_open": False,
             "can_exit": False,
-            "contents": []
+            "contents": {}
         }
     }
 }

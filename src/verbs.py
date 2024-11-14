@@ -25,13 +25,13 @@ is open(such as a door), call the item's 'description_open' property"""
         return scene_name.scene["nouns"][noun]["description"]
 
     # if item is in player inventory
-    if noun == player.stats["inventory"]["name"]:
-        if player.stats["inventory"]["is_open"] and player.stats["inventory"]["has_contents"]:
-            return f'Contents: {scene_name.scene["nouns"][noun]["contents"]}'
-        if player.stats["inventory"]["is_open"]:
-            return player.stats["inventory"]["description_open"]
+    if noun in player.stats["inventory"]:
+        if player.stats["inventory"][noun]["is_open"] and player.stats["inventory"][noun]["has_contents"]:
+            return f'Contents: {player.stats[noun]["contents"]}'
+        if player.stats["inventory"][noun]["is_open"]:
+            return player.stats["inventory"][noun]["description_open"]
 
-        return player.stats["inventory"]["description"]
+        return player.stats["inventory"][noun]["description"]
 
 
 def get_item(scene_name, item):
@@ -42,21 +42,21 @@ remove item from contents[]. Print inventory
 
     if item in scene_name.scene["nouns"] and scene_name.scene["nouns"][item]["can_get"]:
         if item not in player.stats["inventory"]:
-            player.stats["inventory"].append(
-        scene_name.scene["nouns"][x]["contents"][item]["name"])
-            return f'You pick up the {item}\n' f'{colors["bold"]}Your Inventory:{colors["green"]} {player.stats["inventory"]}'
-        
-        
+            player.stats["inventory"].update(
+        scene_name.scene["nouns"][x]["contents"][item])
+            return f'You pick up the {item}\n' f'{colors["bold"]}Your Inventory:{colors["green"]} {player.stats["inventory"]["name"]}'
+
     for x in scene_name.scene["nouns"]:
         item_contents = scene_name.scene["nouns"][x]["contents"]
         if item in item_contents and item_contents[item]["can_get"]:
             if item not in player.stats["inventory"]:
-                player.stats["inventory"].append(
-scene_name.scene["nouns"][x]["contents"][item]["name"])
+                player.stats["inventory"].update(
+{item: scene_name.scene["nouns"][x]["contents"][item]})
+                print(player.stats["inventory"])
                 del item_contents[item]
-                return f'You pick up the {item}\n' f'{colors["bold"]}Your Inventory:{colors["green"]} {player.stats["inventory"]}'
+                return f'You pick up the {item}\n' f'{colors["bold"]}Your Inventory:{colors["green"]} {player.stats["inventory"][item]["name"]}'
             
-            if item in player.stats["inventory"]:
+            else:
                 return "You already have it!"
         
     else: return "you cannot get that."
