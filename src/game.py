@@ -80,8 +80,9 @@ def run_command(command, scene_name):
     elif command[0] in verbs.keys() and command[1] in scene_name.scene["nouns"].keys():
         output = verbs[command[0]]["func"](scene_name, command[1])
         print(output)
-    # get item from inside an object
-    elif [output := verbs[command[0]]["func"] (scene_name, command[1]) for i in scene_name.scene["nouns"].values() if command[0] == "get" and command[1] in i["contents"] and i ["is_open"]]:
+
+    # get or describe item inside something
+    elif [output := verbs[command[0]]["func"] (scene_name, command[1]) for i in scene_name.scene["nouns"].values() if command[1] in i["contents"] and i ["is_open"]]:
         print(output)
     
     #loop back into the prompt

@@ -6,13 +6,16 @@ import player
 from colors import colors
 
 
-# print(bedroom.scene["nouns"]["drawer"]["contents"]["thumbdrive"]["name"])
-
-
 def describe(scene_name, noun):
     """check if item is in scene or in inventory. Check if item is open and if
 item has contents. Decribe item or item contents. If item has no contents and
 is open(such as a door), call the item's 'description_open' property"""
+
+    #if item is inside something
+    for x in scene_name.scene["nouns"]:
+        item_contents = scene_name.scene["nouns"][x]["contents"]
+        if noun in item_contents:
+            return item_contents[noun]["description"]
 
     #if item is in current scene
     if noun in scene_name.scene["nouns"]:
@@ -33,6 +36,7 @@ is open(such as a door), call the item's 'description_open' property"""
 
         return player.stats["inventory"][noun]["description"]
 
+    
 
 def get_item(scene_name, item):
     """check if item is in scene and is able to be picked up. If both return
@@ -46,20 +50,18 @@ remove item from contents[]. Print inventory
         scene_name.scene["nouns"][x]["contents"][item])
             return f'You pick up the {item}\n' f'{colors["bold"]}Your Inventory:{colors["green"]} {player.stats["inventory"]["name"]}'
 
+    #if item is inside something
     for x in scene_name.scene["nouns"]:
         item_contents = scene_name.scene["nouns"][x]["contents"]
         if item in item_contents and item_contents[item]["can_get"]:
             if item not in player.stats["inventory"]:
                 player.stats["inventory"].update(
 {item: scene_name.scene["nouns"][x]["contents"][item]})
-                print(player.stats["inventory"])
                 del item_contents[item]
                 return f'You pick up the {item}\n' f'{colors["bold"]}Your Inventory:{colors["green"]} {player.stats["inventory"][item]["name"]}'
-            
-            else:
-                return "You already have it!"
-        
-    else: return "you cannot get that."
+
+
+    return "you cannot get that."
 
 def open_item(scene_name, item):
     """Check if item is openable and item is not already open. If both return
