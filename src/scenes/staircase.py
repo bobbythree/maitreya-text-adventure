@@ -3,10 +3,11 @@ objects (nouns) and their attributes.
 """
 
 from scenes import street as street
+from scenes import bedroom as bedroom
 
 
 scene = {
-    "next_scene": street,
+    "next_scene": [street, bedroom],
     "nouns": {
         "staircase": {
             "name": "staircase",

@@ -9,7 +9,7 @@ from scenes import staircase as staircase
 
 
 scene = {
-    "next_scene": staircase,
+    "next_scene": [staircase],
     "nouns": {
         "bedroom": {
             "name": "bedroom",
@@ -105,7 +105,7 @@ from games and bands you like. The [screen] glows with green text""",
             "has_contents": False,
             "can_exit": True,
             "description_open":
-"""Out the door is a [staircase] down to another door.""",
+"""Outside the door is a downward [staircase]. Type 'go staircase' to enter.""",
             "contents": []
         },
         "bed": {
