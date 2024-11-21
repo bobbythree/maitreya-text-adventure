@@ -6,6 +6,7 @@ objects (nouns) and their attributes.
 scene = {
     "nouns": {
         "street": {
+            "name": "street",
             "description": """You are on the main street outside your apartment""",             
             "can_get": False,
             "can_open": False,

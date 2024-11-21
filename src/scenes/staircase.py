@@ -32,6 +32,16 @@ your apartment. It is a shared public staircase that leads down to a heavy
                 "description_open": "the door leads outside to the [street]",
                 "contents": []            
         },
+        "bedroom": {
+            "name": "bedroom",
+            "description":
+            """Your bedroom is small and cluttered.""",
+            "can_get": False,
+            "can_open": False,
+            "is_open": False,
+            "can_exit": False,
+            "contents": []
+        },
         "street": {
             "name": "street",
             "description": """Looking though the door you can see the [street]
