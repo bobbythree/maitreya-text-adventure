@@ -9,8 +9,18 @@ from scenes import staircase as staircase
 
 
 scene = {
-    "next_scene": [staircase],
+    "next_scene": [staircase],    
     "nouns": {
+        "test": {
+            "name": "test",
+                "description": 
+                """this is a test""",
+                "can_get": True,
+                "can_open": False,
+                "is_open": False,
+                "can_exit": False,
+                "contents": []
+            },
         "bedroom": {
             "name": "bedroom",
             "description": 

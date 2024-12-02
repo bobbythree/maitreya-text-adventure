@@ -7,7 +7,7 @@ from scenes import bedroom as bedroom
 
 
 scene = {
-    "next_scene": [street, bedroom],
+    "next_scene": [bedroom, street],
     "nouns": {
         "staircase": {
             "name": "staircase",

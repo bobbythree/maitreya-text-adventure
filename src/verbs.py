@@ -43,23 +43,24 @@ true, add item to player inventory. If item was in another item's contents
 remove item from contents[]. Print inventory
 """
 
+    #if item is visible in the scene
     if item in scene_name.scene["nouns"] and scene_name.scene["nouns"][item]["can_get"]:
         if item not in player.stats["inventory"]:
             player.stats["inventory"].update(
-        scene_name.scene["nouns"][x]["contents"][item])
-            return f'You pick up the {item}\n' f'{colors["bold"]}Your Inventory:{colors["green"]} {player.stats["inventory"]["name"]}'
+        {item: scene_name.scene["nouns"][item]})
+            return f'You pick up the {item}\n' f'{colors["bold"]}Your Inventory:{colors["green"]} {[x for x in player.stats["inventory"].keys()]}'
 
     #if item is inside something
     for x in scene_name.scene["nouns"]:
+        parent_item = scene_name.scene["nouns"][x]
         item_contents = scene_name.scene["nouns"][x]["contents"]
         if item in item_contents and item_contents[item]["can_get"]:
-            if item not in player.stats["inventory"]:
-                player.stats["inventory"].update(
+            if parent_item["is_open"]:
+                if item not in player.stats["inventory"]:
+                    player.stats["inventory"].update(
 {item: scene_name.scene["nouns"][x]["contents"][item]})
-                del item_contents[item]
-                return f'You pick up the {item}\n' f'{colors["bold"]}Your Inventory:{colors["green"]} {player.stats["inventory"][item]["name"]}'
-
-    return "you cannot get that."
+                    del item_contents[item]
+                    return f'You pick up the {item}\n' f'{colors["bold"]}Your Inventory:{colors["green"]} {[x for x in player.stats["inventory"].keys()]}'
 
 
 def open_item(scene_name, item):
@@ -89,6 +90,6 @@ verbs = {
         "func": open_item
     },
     "go": {
-
+        
     }
 }
