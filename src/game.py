@@ -88,6 +88,9 @@ def run_command(command, scene_name):
     elif [output := verbs[command[0]]["func"] (scene_name, command[1]) for i in scene_name.scene["nouns"].values() if command[1] in i["contents"] and i ["is_open"]]:
         print(output)
 
+    elif [output := verbs[command[0]]["func"] (scene_name, command[1]) for i in scene_name.scene["nouns"].values() if command[1] in i["contents"] and not i ["is_open"]]:
+        print("You do not see such an item.")
+
     #loop back into the prompt
     print(colors['cyan'])
     command_prompt(scene_name)
