@@ -2,8 +2,11 @@
 objects (nouns) and their attributes.
 """
 
+from scenes import staircase as staircase
+
 
 scene = {
+    "next_scene": [staircase],
     "nouns": {
         "street": {
             "name": "street",

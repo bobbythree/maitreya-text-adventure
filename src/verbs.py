@@ -49,7 +49,6 @@ remove item from contents[]. Print inventory
             player.stats["inventory"].update(
         {item: scene_name.scene["nouns"][item]})
             return f'You pick up the {item}\n' f'{colors["bold"]}Your Inventory:{colors["green"]} {[x for x in player.stats["inventory"].keys()]}'
-    return "You cannot get that."
     
     #if item is inside something
     for x in scene_name.scene["nouns"]:
@@ -62,7 +61,7 @@ remove item from contents[]. Print inventory
 {item: scene_name.scene["nouns"][x]["contents"][item]})
                     del item_contents[item]
                     return f'You pick up the {item}\n' f'{colors["bold"]}Your Inventory:{colors["green"]} {[x for x in player.stats["inventory"].keys()]}'
-
+    return "You can't get that"
 
 def open_item(scene_name, item):
     """Check if item is openable and item is not already open. If both return
