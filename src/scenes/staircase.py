@@ -44,7 +44,7 @@ your apartment. It is a shared public staircase that leads down to a heavy
         "bedroom": {
             "name": "bedroom",
             "description":
-            """Your bedroom is small and cluttered.""",
+            """It's your bedroom.""",
             "can_get": False,
             "can_open": False,
             "is_open": False,

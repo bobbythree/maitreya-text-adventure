@@ -21,6 +21,15 @@ scene = {
             "is_open": False,
             "can_exit": False,
             "contents": []
+        },
+        "staircase": {
+            "name": "staircase",
+            "description": """It's the staircase back up to your bedroom.""",             
+                "can_get": False,
+                "can_open": False,
+                "is_open": False,
+                "can_exit": False,
+                "contents": []
         }
     }
 }

@@ -64,7 +64,7 @@ def run_command(command, scene_name):
         print(colors["cyan"])
         command_prompt(scene_name.scene["next_scene"][command[1]]["module"])
 
-    if command[0] == "go" and command[1] not in str(scene_name.scene["next_scene"]):
+    elif command[0] == "go" and command[1] not in str(scene_name.scene["next_scene"]):
         print("You can't go there.")
 
     # if no noun
