@@ -11,9 +11,9 @@ import player
 from verbs import verbs
 from one_word_commands import *
 from scenes import (
-    bedroom,
-    street,
-    staircase
+    bedroom as bedroom,
+    street as street,
+    staircase as staircase
 )
 from colors import colors
 
@@ -58,14 +58,13 @@ def run_command(command, scene_name):
     elif command[0] == "go" and len(command) == 1:
         print("Go where?")
 
-    elif command[0] == "go" and command[1] in str(scene_name.scene["next_scene"]):
-        for s in scene_name.scene["next_scene"]:
-            print(s.scene["nouns"][command[1]]["description"])
-            print(f"\n{colors['bold']}Current Scene: {colors['green']}{command[1]}")
-            print(colors["cyan"])
-            command_prompt(s)
+    elif command[0] == "go" and command[1] in scene_name.scene["next_scene"]:
+        print(f'{colors["bold"]} Current Scene: {scene_name.scene["next_scene"][command[1]]["name"]}{colors["green"]}')
+        print(scene_name.scene["next_scene"][command[1]]["module"].scene["nouns"][command[1]]["description"])
+        print(colors["cyan"])
+        command_prompt(scene_name.scene["next_scene"][command[1]]["module"])
 
-    elif command[0] == "go" and command[1] not in str(scene_name.scene["next_scene"]):
+    if command[0] == "go" and command[1] not in str(scene_name.scene["next_scene"]):
         print("You can't go there.")
 
     # if no noun

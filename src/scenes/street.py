@@ -6,7 +6,12 @@ from scenes import staircase as staircase
 
 
 scene = {
-    "next_scene": [staircase],
+    "next_scene": {
+        "staircase": {
+            "name": "staircase",
+            "module": staircase
+        }
+    },
     "nouns": {
         "street": {
             "name": "street",
