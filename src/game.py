@@ -59,7 +59,7 @@ def run_command(command, scene_name):
         print("Go where?")
 
     elif command[0] == "go" and command[1] in scene_name.scene["next_scene"]:
-        print(f'{colors["bold"]} Current Scene: {scene_name.scene["next_scene"][command[1]]["name"]}{colors["green"]}')
+        print(f'{colors["bold"]}Current Scene: {scene_name.scene["next_scene"][command[1]]["name"]}{colors["green"]}')
         print(scene_name.scene["next_scene"][command[1]]["module"].scene["nouns"][command[1]]["description"])
         print(colors["cyan"])
         command_prompt(scene_name.scene["next_scene"][command[1]]["module"])
