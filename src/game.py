@@ -8,16 +8,18 @@ from scenes import bedroom as bedroom
 from colors import colors
 
 
-# start of gameplay
+# functions
 def clear_terminal():
-    """Clear the terminal"""
+    """This function lears the terminal."""
 
     os.system("cls" if os.name == "nt" else "clear")
 
 
 def start():
-    """display startscreen."""
-
+    """
+    Displays the game logo and the opening 
+    narration.
+    """
 
     game_logo = pyfiglet.figlet_format("MAITREYA's QUEST", font="smkeyboard")
     print(colors["cyan"])
@@ -39,5 +41,5 @@ if __name__ == "__main__":
     start()
 
 
-#initial call
+#pass opening scene to text parser funcs
 command_prompt(bedroom)
