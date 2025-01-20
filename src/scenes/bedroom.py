@@ -8,7 +8,6 @@ import pyfiglet
 from utils import displayInventory as displayInventory
 from scenes import staircase as staircase
 
-inv = [key for key in player.stats["inventory"]]
 
 scene = {
     "next_scene": {

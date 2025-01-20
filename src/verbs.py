@@ -50,7 +50,7 @@ remove item from contents[]. Print inventory
         if item not in player.stats["inventory"]:
             player.stats["inventory"].update(
         {item: scene_name.scene["nouns"][item]})
-            return f'You pick up the {item}\n' f'{colors["bold"]}Your Inventory:{colors["green"]} {[x for x in player.stats["inventory"].keys()]}'
+            return f'You pick up the {item}\n' f'{colors["bold"]}Your Inventory:{colors["green"]} {[x for x in player.stats["inventory"]]}'
     
     #if item is inside something
     for x in scene_name.scene["nouns"]:

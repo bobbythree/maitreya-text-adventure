@@ -6,6 +6,7 @@ import os
 import player
 from colors import colors
 
+
 def clear_terminal():
     """This function lears the terminal."""
 
