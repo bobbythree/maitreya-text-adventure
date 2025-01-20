@@ -5,6 +5,7 @@ This module contains the text-parser functions (command_prompt and run_command).
 
 import player
 from verbs import verbs
+from utils import displayInventory
 from scenes import (
     bedroom as bedroom,
     street as street,
@@ -68,6 +69,10 @@ def run_command(command, scene_name):
     elif command[0] in scene_name.scene["nouns"] and len(command) == 1:
         print("wha??")
 
+    # to look at inventory
+    elif command[0] == "look" and command[1] == "inventory":
+        displayInventory()
+
     # if item is in inventory
     elif command[0] in verbs.keys() and command[1] not in scene_name.scene["nouns"].keys() and command[1] in player.stats["inventory"]:
         output = verbs[command[0]]["func"](scene_name, command[1])
@@ -84,6 +89,8 @@ def run_command(command, scene_name):
 
     elif [output := verbs[command[0]]["func"] (scene_name, command[1]) for i in scene_name.scene["nouns"].values() if command[1] in i["contents"] and not i ["is_open"]]:
         print("You do not see such an item.")
+
+    
 
     #loop back into the prompt
     print(colors['cyan'])

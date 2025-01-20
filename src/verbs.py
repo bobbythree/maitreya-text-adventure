@@ -4,12 +4,14 @@ import pdb
 from scenes import bedroom, street
 import player
 from colors import colors
+from utils import displayInventory
 
 
 def describe(scene_name, noun):
     """check if item is in scene or in inventory. Check if item is open and if
 item has contents. Decribe item or item contents. If item has no contents and
 is open(such as a door), call the item's 'description_open' property"""
+
 
     #if item is inside something
     for x in scene_name.scene["nouns"]:
