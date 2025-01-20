@@ -30,6 +30,14 @@ scene = {
                 "is_open": False,
                 "can_exit": False,
                 "contents": []
+        },
+        "inventory": {
+            "name": "inventory",
+            "description": "inventory: ",
+            "can_get": False,
+            "is_open": False,
+            "can_exit": False,
+            "contents": {}
         }
     }
 }

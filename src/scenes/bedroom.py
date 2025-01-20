@@ -8,7 +8,7 @@ import pyfiglet
 from utils import displayInventory as displayInventory
 from scenes import staircase as staircase
 
-inv = [x for x in player.stats["inventory"]]
+inv = [key for key in player.stats["inventory"]]
 
 scene = {
     "next_scene": {
@@ -147,7 +147,7 @@ from games and bands you like. The [screen] glows with green text""",
         },
         "inventory": {
             "name": "inventory",
-            "description": displayInventory(),
+            "description": "inventory: ",
             "can_get": False,
             "is_open": False,
             "can_exit": False,

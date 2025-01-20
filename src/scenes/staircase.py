@@ -61,6 +61,14 @@ outside.""",
             "has_contents": False,
             "can_exit": True,
             "contents": [] 
+        },
+        "inventory": {
+            "name": "inventory",
+            "description": "inventory: ",
+            "can_get": False,
+            "is_open": False,
+            "can_exit": False,
+            "contents": {}
         }
     }
 }
