@@ -1,19 +1,14 @@
 """this is the main py file and entry point for this program."""
 
 
-import os
 import pyfiglet
 from parser import (command_prompt, run_command)
 from scenes import bedroom as bedroom
 from colors import colors
+from utils import clear_terminal, displayInventory
 
 
 # functions
-def clear_terminal():
-    """This function lears the terminal."""
-
-    os.system("cls" if os.name == "nt" else "clear")
-
 
 def start():
     """
