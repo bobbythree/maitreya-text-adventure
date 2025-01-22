@@ -5,7 +5,7 @@ This module contains the text-parser functions (command_prompt and run_command).
 
 import player
 from verbs import verbs
-from utils import displayInventory
+from utils import displayInventory, clear_terminal
 from scenes import (
     bedroom as bedroom,
     street as street,
@@ -55,6 +55,7 @@ def run_command(command, scene_name):
         print("Go where?")
 
     elif command[0] == "go" and command[1] in scene_name.scene["next_scene"]:
+        clear_terminal()
         print(f'{colors["bold"]}Current Scene: {scene_name.scene["next_scene"][command[1]]["name"]}{colors["green"]}')
         print(scene_name.scene["next_scene"][command[1]]["module"].scene["nouns"][command[1]]["description"])
         print(colors["cyan"])
