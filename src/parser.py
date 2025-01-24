@@ -4,6 +4,7 @@ This module contains the text-parser functions (command_prompt and run_command).
 
 
 import player
+from one_word_commands import one_word_commands
 from verbs import verbs
 from utils import displayInventory, clear_terminal
 from scenes import (
@@ -49,6 +50,11 @@ def run_command(command, scene_name):
     # if no words matched known words
     if command == []:
         print("does not compute.")
+
+    #one word commands
+    if command[0] in one_word_commands and len(command) == 1:
+        output = one_word_commands[command[0]]["func"](scene_name)
+        print(output)
 
     #navigation commands
     elif command[0] == "go" and len(command) == 1:
