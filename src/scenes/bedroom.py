@@ -10,6 +10,9 @@ from scenes import staircase as staircase
 
 
 scene = {
+    "description": """Your [bedroom] is dimly lit by artificial light coming
+through the [window]. In the room is your [computer] sitting on a [desk].
+There is one [door] to get out.""",
     "next_scene": {
         "staircase": {
             "name": "staircase",
@@ -30,7 +33,9 @@ scene = {
         "bedroom": {
             "name": "bedroom",
             "description": 
-            """Your bedroom is small and cluttered.""",
+            """Your [bedroom] is dimly lit by artificial light coming
+through the [window]. In the room is your [computer] sitting on a [desk].
+There is one [door] to get out.""",
             "can_get": False,
             "can_open": False,
             "is_open": False,
