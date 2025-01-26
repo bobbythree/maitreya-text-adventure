@@ -52,7 +52,7 @@ def run_command(command, scene_name):
         print("does not compute.")
 
     #one word commands ('look', 'inventory', 'save', 'restore', 'quit')
-    if command[0] in one_word_commands and len(command) == 1:
+    elif command[0] in one_word_commands and len(command) == 1:
         output = one_word_commands[command[0]]["func"](scene_name)
         print(output)
 
