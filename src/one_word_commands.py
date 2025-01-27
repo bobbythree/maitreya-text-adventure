@@ -2,6 +2,7 @@
 this module contains one word commands
 """
 
+
 from colors import colors
 from utils import displayInventory
 import player
@@ -14,6 +15,7 @@ def describe_scene(scene_name):
 
 def showInventory():
     return f'{colors["bold"]}Your Inventory:{colors["green"]} {[x for x in player.stats["inventory"]]}'
+
 
 # commands
 one_word_commands = {
