@@ -7,6 +7,9 @@ from scenes import bedroom as bedroom
 
 
 scene = {
+    "description": """You are now in the staircase that leads out of
+    your apartment. It is a shared public staircase that leads down to a heavy
+    [door].""",
     "next_scene": {
         "bedroom": {
             "name": "bedroom",
