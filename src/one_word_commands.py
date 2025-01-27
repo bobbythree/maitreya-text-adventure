@@ -13,7 +13,7 @@ def describe_scene(scene_name):
     return scene_name.scene["description"]
 
 
-def showInventory():
+def showInventory(scene_name):
     return f'{colors["bold"]}Your Inventory:{colors["green"]} {[x for x in player.stats["inventory"]]}'
 
 

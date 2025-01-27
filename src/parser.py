@@ -55,7 +55,7 @@ def run_command(command, scene_name):
 
     #one word commands ('look', 'inventory', 'save', 'restore', 'quit')
     elif command[0] in one_word_commands and len(command) == 1:
-        output = one_word_commands[command[0]]["func"]()
+        output = one_word_commands[command[0]]["func"](scene_name)
         print(output)
 
     #navigation commands
