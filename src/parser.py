@@ -32,6 +32,8 @@ def command_prompt(scene_name):
             command_list.append(x)
         elif x in player.stats["inventory"] and x not in command_list:
             command_list.append(x)
+        elif x in one_word_commands.keys() and x not in command_list:
+            command_list.append(x)
         for i in scene_name.scene["nouns"].values():
             if x in i["contents"]:
                 command_list.append(x)
@@ -52,7 +54,7 @@ def run_command(command, scene_name):
         print("does not compute.")
 
     #one word commands ('look', 'inventory', 'save', 'restore', 'quit')
-    if command[0] in one_word_commands and len(command) == 1:
+    elif command[0] in one_word_commands and len(command) == 1:
         output = one_word_commands[command[0]]["func"](scene_name)
         print(output)
 

@@ -14,5 +14,7 @@ def clear_terminal():
 
 
 def displayInventory():
+    """display the inventory if player types 'look inventory'"""
+
     print (f'{colors["bold"]}Your Inventory:{colors["green"]} {[x for x in player.stats["inventory"]]}')
     
